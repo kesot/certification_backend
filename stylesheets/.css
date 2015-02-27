@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html {
+  width: 100%;
+  font: 100% 12pt, Courier New, sans-serif;
+  letter-spacing: .1em; }
+
+body {
+  width: 100%; }
+
+header#main {
+  width: 100%;
+  border-bottom: .2mm;
+  display: table; }
+  header#main .header-row {
+    display: table-row; }
+  header#main .right,
+  header#main .center,
+  header#main .left {
+    display: table-cell; }

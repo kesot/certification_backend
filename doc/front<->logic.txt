@@ -1,0 +1,28 @@
+Вход:
+{'login':value}
+{'password':hash}
+Ответ:
+{'answer':1/0, 'code':value}
+##############################
+Выход:
+{'code':value}
+##############################
+Добавление пользователя:
+{'fname':value, 'sname':value, 'mname':value, 'birthday':value, 'email':value, 'login':value, 'password':hash}
+Ответ:
+{'answer':1/0, 'error':what}
+##############################
+Удаление пользователя:
+{'code':value}
+Ответ:
+{'answer':1/0, 'error':what}
+##############################
+Запрос данных пользователя:
+{'code':value}
+Ответ:
+{'fname':value, 'sname':value, 'mname':value, 'birthday':value, 'email':value}
+##############################
+Редактирование данных пользователя:
+{'code':value, 'fname':value, 'sname':value, 'mname':value, 'birthday':value, 'email':value, 'password':hash}
+Ответ:
+{'answer':1/0, 'error':what}

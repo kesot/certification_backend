@@ -20,7 +20,8 @@
 Запрос данных пользователя:
 {'code':value}
 Ответ:
-{'fname':value, 'sname':value, 'mname':value, 'birthday':value, 'email':value}
+{'answer':1, fname':value, 'sname':value, 'mname':value, 'birthday':value, 'email':value} - если есть такой пользователь
+{'answer':0, 'error':what}
 ##############################
 Редактирование данных пользователя:
 {'code':value, 'fname':value, 'sname':value, 'mname':value, 'birthday':value, 'email':value, 'password':hash}

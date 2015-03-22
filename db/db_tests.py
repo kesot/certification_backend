@@ -10,9 +10,10 @@ class TestDBFunctions(unittest.TestCase):
         self.password = hashlib.sha256(b_password).hexdigest()
 
     def test_add_user(self):
-        user = Users(fname="Иван", sname="Иванов", mname="Иванович", 
-                birthday="1990-11-11", email="ivanov@test.com", 
-                login="ivan", password=self.password)
+        data = {"fname": "Иван", "sname": "Иванов", "mname": "Иванович",
+                "birthday": "1990-11-11", "email": "ivanov@test.com",
+                "login": "ivan", "password": self.password}
+        user = Users(data)
         self.assertTrue(db_processor.add_user(user))
 
     def test_get_user(self):

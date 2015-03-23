@@ -34,8 +34,21 @@ def get_user(login):
     except exc.SQLAlchemyError as e:
         session.rollback()
         pass
-    # write to log.error here
+        # write to log.error here
     return None
+
+
+def update_user(data):
+    try:
+        user = session.query(Users).filter(Users.login == data["login"]).one()
+        user.update_dict(data)
+        session.commit()
+        return True
+    except exc.SQLAlchemyError as e:
+        session.rollback()
+        pass
+        # write to log.error here
+    return False
 
     
 # create global session instance

@@ -6,7 +6,7 @@ import hashlib
 
 class TestDBFunctions(unittest.TestCase):
     def setUp(self):
-        b_password = "test_passwor".encode("utf-8")
+        b_password = "test_password".encode("utf-8")
         self.password = hashlib.sha256(b_password).hexdigest()
 
     def test_add_user(self):

@@ -22,7 +22,16 @@ class Users(Base):
     password = Column(String, nullable=False)
 
     def __init__(self, data):
-        self.__dict__.update(data)
+        self.update_dict(data)
+
+    def update_dict(self, data):
+        for key in data:
+            setattr(self, key, data[key])
+
+    def to_json(self):
+        return {"fname": self.fname, "sname": self.sname, "mname": self.mname,
+                "birthday": str(self.birthday), "email": self.email,
+                "login": self.login, "password": self.password}
 
 
 if __name__ == "__main__":

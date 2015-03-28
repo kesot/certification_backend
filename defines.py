@@ -5,3 +5,6 @@ DB_PORT = 5432
 
 DB_IP = "127.0.0.1"
 MEMCACHED_IP = "127.0.0.1"
+
+# one month (in seconds)
+EXPIRATION_TIME = 2592000

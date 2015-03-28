@@ -1,11 +1,12 @@
 import tornado.ioloop
 import tornado.web
 from tornado.options import define, options, parse_command_line
-from defines import SESSION_PORT, USERS_PORT, MEMCACHED_IP
+from defines import SESSION_PORT, USERS_PORT, MEMCACHED_IP, EXPIRATION_TIME
 import json
 import requests
 from uuid import uuid4
 import pylibmc
+import time
 
 define("debug", default=True)
 
@@ -24,15 +25,17 @@ class LoginUserHandler(tornado.web.RequestHandler):
             self.write(json.dumps({"answer": 0, "error": "Incorrect login or password"}))
         else:
             code = "".join(str(uuid4()).split("-"))
-            connections_cache[code] = login
+            connections_cache[code] = (login, time.time() + EXPIRATION_TIME)
             self.write(json.dumps({"answer": 1, "code": code}))
 
 
 class CheckUserAccessHandler(tornado.web.RequestHandler):
     def get(self):
         code = self.get_argument("code")
-        if code in connections_cache:
-            self.write(json.dumps({"answer": 1, "login": connections_cache[code]}))
+        if code in connections_cache and time.time() < connections_cache[code][1]:
+            login = connections_cache[code][0]
+            connections_cache[code] = (login, time.time() + EXPIRATION_TIME)
+            self.write(json.dumps({"answer": 1, "login": login}))
         else:
             self.write(json.dumps({"answer": 0}))
 

@@ -1,10 +1,11 @@
 import tornado.ioloop
 import tornado.web
 from tornado.options import define, options, parse_command_line
-from defines import SESSION_PORT, USERS_PORT
+from defines import SESSION_PORT, USERS_PORT, MEMCACHED_IP
 import json
 import requests
 from uuid import uuid4
+import pylibmc
 
 define("debug", default=True)
 
@@ -23,15 +24,15 @@ class LoginUserHandler(tornado.web.RequestHandler):
             self.write(json.dumps({"answer": 0, "error": "Incorrect login or password"}))
         else:
             code = "".join(str(uuid4()).split("-"))
-            connections_pool[code] = login
+            connections_cache[code] = login
             self.write(json.dumps({"answer": 1, "code": code}))
 
 
 class CheckUserAccessHandler(tornado.web.RequestHandler):
     def get(self):
         code = self.get_argument("code")
-        if code in connections_pool:
-            self.write(json.dumps({"answer": 1, "login": connections_pool[code]}))
+        if code in connections_cache:
+            self.write(json.dumps({"answer": 1, "login": connections_cache[code]}))
         else:
             self.write(json.dumps({"answer": 0}))
 
@@ -40,21 +41,21 @@ class LogoutUserHandler(tornado.web.RequestHandler):
     def delete(self):
         data = tornado.escape.json_decode(self.request.body)
         code = data["code"]
-        if code in connections_pool:
-            del connections_pool[code]
+        if code in connections_cache:
+            del connections_cache[code]
             self.write(json.dumps({"answer": 1}))
         else:
             self.write(json.dumps({"answer": 0, "error": "No such code"}))
 
 
-app = tornado.web.Application([(r"/login", LoginUserHandler),
-                               (r"/check", CheckUserAccessHandler),
-                               (r"/logout", LogoutUserHandler)],
-                              debug=options.debug)
-
-
 if __name__ == "__main__":
-    connections_pool = {}
+    app = tornado.web.Application([(r"/login", LoginUserHandler),
+                                   (r"/check", CheckUserAccessHandler),
+                                   (r"/logout", LogoutUserHandler)],
+                                  debug=options.debug)
+    connections_cache = pylibmc.Client([MEMCACHED_IP],
+                                       binary=True,
+                                       behaviors={"tcp_nodelay": True})
     parse_command_line()
     app.listen(SESSION_PORT)
     tornado.ioloop.IOLoop.instance().start()

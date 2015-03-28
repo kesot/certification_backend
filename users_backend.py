@@ -54,14 +54,12 @@ class UpdateUserHandler(tornado.web.RequestHandler):
             self.write(json.dumps({"answer": 1}))
 
 
-app = tornado.web.Application([(r"/add_user", AddUserHandler),
-                               (r"/get_user", GetUserHandler),
-                               (r"/remove_user", RemoveUserHandler),
-                               (r"/update_user", UpdateUserHandler)],
-                              debug=options.debug)
-
-
 if __name__ == "__main__":
+    app = tornado.web.Application([(r"/add_user", AddUserHandler),
+                                   (r"/get_user", GetUserHandler),
+                                   (r"/remove_user", RemoveUserHandler),
+                                   (r"/update_user", UpdateUserHandler)],
+                                  debug=options.debug)
     parse_command_line()
     app.listen(USERS_PORT)
     tornado.ioloop.IOLoop.instance().start()

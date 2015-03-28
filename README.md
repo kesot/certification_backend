@@ -2,6 +2,8 @@ Current dependencies:
 - postgresql-9.4
 - python3-psycopg2
 - sqlalchemy
+- memcached
+- pylibmc
 
 Notes:
 1) "createuser -P -s -e admin" from postgres user;

@@ -32,10 +32,14 @@ class LoginUserHandler(tornado.web.RequestHandler):
 class CheckUserAccessHandler(tornado.web.RequestHandler):
     def get(self):
         code = self.get_argument("code")
-        if code in connections_cache and time.time() < connections_cache[code][1]:
-            login = connections_cache[code][0]
-            connections_cache[code] = (login, time.time() + EXPIRATION_TIME)
-            self.write(json.dumps({"answer": 1, "login": login}))
+        if code in connections_cache:
+            if time.time() < connections_cache[code][1]:
+                login = connections_cache[code][0]
+                connections_cache[code] = (login, time.time() + EXPIRATION_TIME)
+                self.write(json.dumps({"answer": 1, "login": login}))
+            else:
+                del connections_cache[code]
+                self.write(json.dumps({"answer": 0}))
         else:
             self.write(json.dumps({"answer": 0}))
 

@@ -1,8 +1,10 @@
 import unittest
 import requests
-from defines import USERS_PORT
 import hashlib
 import json
+import sys
+sys.path.append("../")
+from defines import USERS_PORT
 
 users_url = "http://localhost:" + str(USERS_PORT)
 

@@ -3,11 +3,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
 import sys
 sys.path.append("../")
-from defines import DB_PORT, DB_IP
+from defines import CONNECTION_ADDRESS
 
 
 Base = declarative_base()
-CONNECTION_ADDRESS = 'postgresql+psycopg2://admin:admin@{0}:{1}/usersDB'.format(DB_IP, DB_PORT)
 
 
 class Users(Base):

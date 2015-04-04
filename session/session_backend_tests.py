@@ -1,6 +1,9 @@
 import unittest
 import requests
 import json
+import hashlib
+import sys
+sys.path.append("../")
 from defines import SESSION_PORT
 
 session_url = "http://localhost:" + str(SESSION_PORT)
@@ -9,11 +12,12 @@ session_url = "http://localhost:" + str(SESSION_PORT)
 class TestSessionBackendMethods(unittest.TestCase):
     """
     For this tests in database must be record with login 'ivan'
-    and password '15d88f1b85fab122d0034ebde16451797f12e5b0e07d78aed82ba5e519c84ba8'
+    and password 'test_password'
     """
     def setUp(self):
         self.login = "ivan"
-        self.password = "15d88f1b85fab122d0034ebde16451797f12e5b0e07d78aed82ba5e519c84ba8"
+        b_password = "test_password".encode("utf-8")
+        self.password = hashlib.sha256(b_password).hexdigest()
         self.login_method_url = session_url + "/login"
         self.check_method_url = session_url + "/check"
         self.logout_method_url = session_url + "/logout"

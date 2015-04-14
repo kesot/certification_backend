@@ -15,3 +15,4 @@ LOG_FORMAT = "%(levelname)-8s [LINE:%(lineno)d] %(filename)s %(message)s"
 # must be changed
 LOG_USERS_FNAME = "/home/yura/yurochko_fokin_certification_service/log/users.log"
 LOG_SESSION_FNAME = "/home/yura/yurochko_fokin_certification_service/log/session.log"
+LOG_LOGIC_FNAME = "/home/yura/yurochko_fokin_certification_service/log/logic.log"

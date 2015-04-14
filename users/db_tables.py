@@ -25,7 +25,8 @@ class Users(Base):
 
     def update_dict(self, data):
         for key in data:
-            setattr(self, key, data[key])
+            if hasattr(self, key):
+                setattr(self, key, data[key])
 
     def to_json(self):
         return {"fname": self.fname, "sname": self.sname, "mname": self.mname,

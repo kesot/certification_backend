@@ -18,7 +18,7 @@
 			
 			<!-- Подключение секции рекламы -->
 			<?include("templates/section-advertising.tpl");?>
-
+			
 		</div>
 		
 		<!-- Подключение подвала сайта -->

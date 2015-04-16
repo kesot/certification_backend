@@ -1,88 +1,115 @@
 <section id="advertising">
-	<ul>
-		<li class="cell">
+
+	<div class="table-row">
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+	</div>
+	<div class="table-row">
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+	</div>
+	<div class="table-row">
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-		<li class="cell">
+		</div >
+		<div class="cell">
 			<div class="up-cell">
 				<span>Название</span>
 				<input type="button" value="Подробнее">
 			</div>
 			<img src="1.jpg" alt="Comment">
-		</li >
-	</ul>
+		</div >
+		<div class="cell">
+			<div class="up-cell">
+				<span>Название</span>
+				<input type="button" value="Подробнее">
+			</div>
+			<img src="1.jpg" alt="Comment">
+		</div >
+		<div class="cell">
+			<div class="up-cell">
+				<span>Название</span>
+				<input type="button" value="Подробнее">
+			</div>
+			<img src="1.jpg" alt="Comment">
+		</div >
+		<div class="cell">
+			<div class="up-cell">
+				<span>Название</span>
+				<input type="button" value="Подробнее">
+			</div>
+			<img src="1.jpg" alt="Comment">
+		</div >
+	</div>
+
 </section>

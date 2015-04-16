@@ -1,4 +1,4 @@
-$font-family: "Exo 2", "Courier New", serif;
+$font-family: "Courier New" "Exo 2", serif;
 $font-size: 12pt;
 
 $primary-color: #333;
@@ -74,6 +74,7 @@ html,body{
 
 h1{
 	font-family: 'Italianno';
+	cursor: pointer;
 }
 
 img{
@@ -343,20 +344,17 @@ div#main {
 		text-align: center;
 		font-size: 1.2em;
 		display: table-cell;
-		padding-top: .1em;
-		padding-bottom: .1em;
-		border-left: .2mm solid rgb(200,200,200);
 		border-top: 1em solid transparent;
 		border-bottom: .8em solid transparent;
 	}
 
 	.tab:hover{
-		border-bottom: .5em solid $btn-h;
+		border-bottom: 5px solid $btn-h;
 		cursor: pointer;
 	}
 
 	.tab.active{
-		border-bottom: .5em solid $btn-h;
+		border-bottom: 5px solid $btn-h;
 	}
 	
 	.about{
@@ -389,17 +387,15 @@ div#main {
 	
 	/**************************** Advertising ****************************/
 	#advertising{
-			width: 879px;	// 
+			width: 80%;	// 
 			margin: 0 auto;
 		ul{
-
+			display: table;
 		}
 	}
 
 	.cell{
-		display: inline-block;
-		margin: 8.5px;
-		width: 200px;
+		display: table-cell;
 		position: relative;
 		// border-radius: 1em;
 	}
@@ -658,7 +654,7 @@ footer#main{
 	margin-top: 2em;
 	margin-bottom: 2em;
 	padding: 2%;
-	border-top: .2mm solid $color-grey1;
+	border-top: 1px solid $color-grey1;
 
 	.data-cell{
 		text-align: left;

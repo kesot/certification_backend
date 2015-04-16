@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Exo 2", "Courier New", serif;
+  font-family: "Courier New" "Exo 2", serif;
 }
 
 *:focus {
@@ -15,6 +15,7 @@ html, body {
 
 h1 {
   font-family: 'Italianno';
+  cursor: pointer;
 }
 
 img {
@@ -263,18 +264,15 @@ div#main .tab {
   text-align: center;
   font-size: 1.2em;
   display: table-cell;
-  padding-top: .1em;
-  padding-bottom: .1em;
-  border-left: 0.2mm solid #c8c8c8;
   border-top: 1em solid transparent;
   border-bottom: .8em solid transparent;
 }
 div#main .tab:hover {
-  border-bottom: 0.5em solid #FFE882;
+  border-bottom: 5px solid #FFE882;
   cursor: pointer;
 }
 div#main .tab.active {
-  border-bottom: 0.5em solid #FFE882;
+  border-bottom: 5px solid #FFE882;
 }
 div#main .about {
   width: 80%;
@@ -301,13 +299,14 @@ div#main .about .close:hover {
   cursor: pointer;
 }
 div#main #advertising {
-  width: 879px;
+  width: 80%;
   margin: 0 auto;
 }
+div#main #advertising ul {
+  display: table;
+}
 div#main .cell {
-  display: inline-block;
-  margin: 8.5px;
-  width: 200px;
+  display: table-cell;
   position: relative;
 }
 div#main .up-cell {
@@ -579,7 +578,7 @@ footer#main {
   margin-top: 2em;
   margin-bottom: 2em;
   padding: 2%;
-  border-top: 0.2mm solid #969696;
+  border-top: 1px solid #969696;
 }
 footer#main .data-cell {
   text-align: left;

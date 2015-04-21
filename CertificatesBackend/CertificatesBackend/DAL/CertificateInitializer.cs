@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
 using CertificatesBackend.Models;
 
 namespace CertificatesBackend.DAL
 {
-	public class CertificateInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<CertificatesDbContext>
+	public class CertificateInitializer : DropCreateDatabaseIfModelChanges<CertificatesDbContext>
 	{
 		protected override void Seed(CertificatesDbContext context)
 		{

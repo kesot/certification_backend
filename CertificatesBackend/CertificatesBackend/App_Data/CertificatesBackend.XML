@@ -481,14 +481,61 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:CertificatesBackend.Controllers.CertificateSetsController">
+            <summary>
+            Работа с наборами сертификатов
+            </summary>
+        </member>
+        <member name="M:CertificatesBackend.Controllers.CertificateSetsController.PutCertificateSet(System.Int32,CertificatesBackend.Models.CertificateSet)">
+            <summary>
+            Изменение набора сертификатов
+            </summary>
+            <param name="id"></param>
+            <param name="сertificateSet"></param>
+            <returns>Статус или сообщение об ошибке</returns>
+        </member>
         <member name="M:CertificatesBackend.Controllers.CertificateSetsController.PostCertificateSet(CertificatesBackend.Models.CertificateSet)">
             <summary>
             Добавление шаблона (набора) сертификатов
             </summary>
             <param name="certificateset">Модель набора сертификатов</param>
-            <remarks>Insert new student</remarks>
-            <response code="400">Bad request</response>
-            <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:CertificatesBackend.Controllers.CertificateSetsController.GenereteCertificates(System.Int32)">
+            <summary>
+            Запускает задачу генерации сертификатов в наборе
+            </summary>
+            <param name="id">id набора сертификатов</param>
+            <returns></returns>
+        </member>
+        <member name="P:CertificatesBackend.Models.CertificateSet.MaskString">
+            <summary>
+            Строка с номера штрихкода с маской. По ней генерятся конкретные коды сертификатов. Спецсимвол - ?. "3234????3455"
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.CertificateSet.AdministrativeName">
+            <summary>
+            Внутреннее название
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.CertificateSet.Name">
+            <summary>
+            Название для отображения потребителю
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.CertificateSet.AllCertificatesGenerated">
+            <summary>
+            Идентификатор того что задача по генерации сертификатов завершена.
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.CertificateSet.Price">
+            <summary>
+            Цена для покупателя
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.CertificateSet.CostValue">
+            <summary>
+            Номинал сертификата
+            </summary>
         </member>
     </members>
 </doc>

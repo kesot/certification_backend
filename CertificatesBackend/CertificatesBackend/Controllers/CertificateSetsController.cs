@@ -1,8 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -13,6 +15,9 @@ using CertificatesBackend.Models;
 
 namespace CertificatesBackend.Controllers
 {
+	/// <summary>
+	/// Работа с наборами сертификатов
+	/// </summary>
 	public class CertificateSetsController : ApiController
 	{
 		private CertificatesDbContext db = new CertificatesDbContext();
@@ -44,20 +49,27 @@ namespace CertificatesBackend.Controllers
 			return Ok(certificateset);
 		}
 
-		// PUT api/CertificateSets/5
-		public IHttpActionResult PutCertificateSet(int id, CertificateSet certificateset)
+		
+		/// <summary>
+		/// Изменение набора сертификатов
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="сertificateSet"></param>
+		/// <returns>Статус или сообщение об ошибке</returns>
+		[ResponseType(typeof(StatusCodeResult))]
+		public IHttpActionResult PutCertificateSet(int id, CertificateSet сertificateSet)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
-			if (id != certificateset.Id)
+			if (id != сertificateSet.Id)
 			{
 				return BadRequest();
 			}
 
-			db.Entry(certificateset).State = EntityState.Modified;
+			db.Entry(сertificateSet).State = EntityState.Modified;
 
 			try
 			{
@@ -82,10 +94,6 @@ namespace CertificatesBackend.Controllers
 		/// Добавление шаблона (набора) сертификатов
 		/// </summary>
 		/// <param name="certificateset">Модель набора сертификатов</param>
-		/// <remarks>Insert new student</remarks>
-		/// <response code="400">Bad request</response>
-		/// <response code="500">Internal Server Error</response>
-		// POST api/CertificateSets
 		[Route("api/CertificateSets/Add")]
 		[HttpPost]
 		[ResponseType(typeof(ResponseMessageResult))]
@@ -100,20 +108,27 @@ namespace CertificatesBackend.Controllers
 			db.SaveChanges();
 			return ResponseMessage(new HttpResponseMessage(HttpStatusCode.Created));
 		}
+
+		/// <summary>
+		/// Запускает задачу генерации сертификатов в наборе
+		/// </summary>
+		/// <param name="id">id набора сертификатов</param>
+		/// <returns></returns>
 		[Route("api/CertificateSets/{id:int}/GenerateCertificates")]
 		[HttpPost]
-		[ResponseType(typeof(CertificateSet))]
+		[ResponseType(typeof(ResponseMessageResult))]
 		public IHttpActionResult GenereteCertificates(int id)
 		{
-			var certificateSet = db.CertificateSets.Find(id);
+			var certificateSet = db.CertificateSets.SingleOrDefault(cs => cs.Id == id);
 			if (certificateSet == null)
-				return BadRequest(string.Format("Certificate #{0} not found", id));
+				return BadRequest(string.Format("CertificateSet #{0} not found", id));
+			if (certificateSet.IsInCertificateGeneratingStage)
+				return BadRequest(string.Format("CertificateSet #{0} already in generating state", id));
+			if (certificateSet.AllCertificatesGenerated)
+				return BadRequest(string.Format("CertificateSet #{0} already generated all certificates", id));
+
+			certificateSet.GenerateCertificates(db);
 			
-			Task.Run(() =>
-			{
-				Thread.Sleep(100000);
-				var a = 1;
-			});
 			return ResponseMessage(new HttpResponseMessage(HttpStatusCode.Accepted));
 		}
 
@@ -126,6 +141,8 @@ namespace CertificatesBackend.Controllers
 			{
 				return NotFound();
 			}
+			if (db.Certificates.Any(c => c.CertificateSetId == id))
+				return BadRequest(string.Format("CertificateSet #{0} имеет связанные сертификаты", id));
 
 			db.CertificateSets.Remove(certificateset);
 			db.SaveChanges();
@@ -144,7 +161,7 @@ namespace CertificatesBackend.Controllers
 
 		private bool CertificateSetExists(int id)
 		{
-			return db.CertificateSets.Count(e => e.Id == id) > 0;
+			return db.CertificateSets.Any(c => c.Id == id);
 		}
 	}
 }

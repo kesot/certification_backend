@@ -30,6 +30,7 @@ namespace CertificatesBackend.Controllers
 		{
 			db = context;
 		}
+		
 		// GET api/CertificateSets
 		public IHttpActionResult GetCertificateSets()
 		{

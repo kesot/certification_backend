@@ -16,11 +16,6 @@ namespace CertificatesBackend
             config.MapHttpAttributeRoutes();
 
 				config.Routes.MapHttpRoute(
-						name: "CertificateSets",
-						routeTemplate: "api/{controller}/add",
-						defaults: new { id = RouteParameter.Optional }
-				  );
-            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

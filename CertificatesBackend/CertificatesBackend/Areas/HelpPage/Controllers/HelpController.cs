@@ -31,7 +31,7 @@ namespace CertificatesBackend.Areas.HelpPage.Controllers
             return View(Configuration.Services.GetApiExplorer().ApiDescriptions);
         }
 
-        public ActionResult Api(string apiId)
+        public ActionResult ApiInfo(string apiId)
         {
             if (!String.IsNullOrEmpty(apiId))
             {

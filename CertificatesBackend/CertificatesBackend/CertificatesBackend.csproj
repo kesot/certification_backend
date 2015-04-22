@@ -180,7 +180,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
-    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ApiInfo.cshtml" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <None Include="Properties\PublishProfiles\certificatesBackend - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\certificatesBackend - Web Deploy.pubxml" />

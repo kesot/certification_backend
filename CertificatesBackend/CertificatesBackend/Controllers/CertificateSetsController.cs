@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.Results;
 using CertificatesBackend.DAL;
 using CertificatesBackend.Models;
 
@@ -78,16 +79,16 @@ namespace CertificatesBackend.Controllers
 		}
 
 		/// <summary>
-		/// Add new student
+		/// Добавление шаблона (набора) сертификатов
 		/// </summary>
-		/// <param name="certificateset">Student Model</param>
+		/// <param name="certificateset">Модель набора сертификатов</param>
 		/// <remarks>Insert new student</remarks>
 		/// <response code="400">Bad request</response>
 		/// <response code="500">Internal Server Error</response>
 		// POST api/CertificateSets
 		[Route("api/CertificateSets/Add")]
 		[HttpPost]
-		[ResponseType(typeof(CertificateSet))]
+		[ResponseType(typeof(ResponseMessageResult))]
 		public IHttpActionResult PostCertificateSet(CertificateSet certificateset)
 		{
 			if (certificateset == null)

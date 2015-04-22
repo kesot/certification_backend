@@ -483,9 +483,9 @@
         </member>
         <member name="M:CertificatesBackend.Controllers.CertificateSetsController.PostCertificateSet(CertificatesBackend.Models.CertificateSet)">
             <summary>
-            Add new student
+            Добавление шаблона (набора) сертификатов
             </summary>
-            <param name="certificateset">Student Model</param>
+            <param name="certificateset">Модель набора сертификатов</param>
             <remarks>Insert new student</remarks>
             <response code="400">Bad request</response>
             <response code="500">Internal Server Error</response>

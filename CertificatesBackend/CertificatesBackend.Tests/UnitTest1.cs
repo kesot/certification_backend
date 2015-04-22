@@ -65,22 +65,7 @@ namespace CertificatesBackend.Tests
 			MockContext = new Mock<CertificatesDbContext>();
 			MockContext.Setup(c => c.CertificateSets).Returns(mockSet.Object);
 		}
-		[TestMethod]
-		public void TestMethod1()
-		{
-
-			var controller = new TestController
-			{
-				Request = new HttpRequestMessage(),
-				Configuration = new HttpConfiguration()
-			};
-
-			// Act
-			var response = ((OkNegotiatedContentResult<string[]>)controller.Get()).Content;
-
-			Assert.AreEqual("value1", response[0]);
-			// Assert
-		}
+		
 		[TestMethod]
 		public void GetCertificateSets()
 		{

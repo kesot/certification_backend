@@ -112,7 +112,7 @@ namespace CertificatesBackend.Areas.HelpPage
             if (type != null && !typeof(HttpResponseMessage).IsAssignableFrom(type))
             {
                 object sampleObject = GetSampleObject(type);
-                foreach (var formatter in formatters)
+                foreach (var formatter in formatters.Where(f => f.SupportedMediaTypes.Select(mt => mt.MediaType).Contains("application/json")))
                 {
                     foreach (MediaTypeHeaderValue mediaType in formatter.SupportedMediaTypes)
                     {
@@ -132,7 +132,7 @@ namespace CertificatesBackend.Areas.HelpPage
                 }
             }
 
-            return samples;
+	        return samples.Where(s => s.Value != null).ToDictionary(s => s.Key, s => s.Value);
         }
 
         /// <summary>

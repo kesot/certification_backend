@@ -4,11 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
-using System.Web.Http.Results;
 using System.Web.Script.Serialization;
 using CertificatesBackend.Controllers;
 using CertificatesBackend.DAL;
 using CertificatesBackend.Models;
+using System.Web.Http.Results;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

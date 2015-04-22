@@ -26,7 +26,7 @@ namespace CertificatesBackend
                 defaults: new { id = RouteParameter.Optional }
             );
 				config.SetDocumentationProvider(new XmlDocumentationProvider(
-					HttpContext.Current.Server.MapPath("bin/CertificatesBackend.XML")));
+					HttpContext.Current.Server.MapPath("App_Data/CertificatesBackend.XML")));
 
         }
     }

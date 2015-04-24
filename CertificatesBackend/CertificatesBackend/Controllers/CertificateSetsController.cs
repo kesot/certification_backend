@@ -41,7 +41,7 @@ namespace CertificatesBackend.Controllers
 		[ResponseType(typeof(CertificateSet))]
 		public IHttpActionResult GetCertificateSet(int id)
 		{
-			CertificateSet certificateset = db.CertificateSets.Find(id);
+			CertificateSet certificateset = db.CertificateSets.TryGetById(id);
 			if (certificateset == null)
 			{
 				return NotFound();

@@ -14,78 +14,9 @@ using Moq;
 
 namespace CertificatesBackend.Tests
 {
-	public static class Mocker
-	{
-		public static Mock<DbSet<T>> GetMockDbSetFor<T>(List<T> entitiesList) where T : class
-		{
-			var queriableList = entitiesList.AsQueryable();
-			var mockDbSet = new Mock<DbSet<T>>();
-			mockDbSet.As<IQueryable<T>>().Setup(m => m.Provider).Returns(queriableList.Provider);
-			mockDbSet.As<IQueryable<T>>().Setup(m => m.Expression).Returns(queriableList.Expression);
-			mockDbSet.As<IQueryable<T>>().Setup(m => m.ElementType).Returns(queriableList.ElementType);
-			mockDbSet.As<IQueryable<T>>().Setup(m => m.GetEnumerator()).Returns(entitiesList.GetEnumerator());
-			mockDbSet.Setup(m => m.Add(It.IsAny<T>())).Callback((T t) =>
-			{
-				entitiesList.Add(t);
-			});
-
-			return mockDbSet;
-		}
-	}
 	[TestClass]
-	public class CertificateSetsControllerTests
+	public class CertificateSetsControllerTests: TestBase
 	{
-		protected Mock<CertificatesDbContext> MockContext;
-		protected CertificatesDbContext DbContext;
-		[TestInitialize]
-		public void TestInitialize()
-		{
-			var companies = new List<Company>
-			{
-				new Company()
-				{
-					Id = 1,
-					Name = "Company1"
-				}
-			};
-			var certificateSets = new List<CertificateSet>
-			{
-				new CertificateSet
-				{
-					Id = 1,
-					CompanyId = 1,
-					Descitption = "CertificateSet descr",
-					MaskString = "244??222284",
-					Name = "Подарочный сертификат на 1000 р",
-					AdministrativeName = "1000 Рублевые сертификаты со скидкой",
-					CostValue = 1000,
-					Price = 900
-				},
-				new CertificateSet
-				{
-					Id = 2,
-					CompanyId = 1,
-					Descitption = "CertificateSet descr2",
-					MaskString = "244???2384",
-					Name = "Подарочный сертификат на 1000 р",
-					AdministrativeName = "1000 Рублевые сертификаты со скидкой",
-					CostValue = 1000,
-					Price = 900
-				},
-			};
-
-			var certificates = new List<Certificate>()
-				;
-
-			var mockCertificateSets = Mocker.GetMockDbSetFor(certificateSets);
-			var mockCertificates = Mocker.GetMockDbSetFor(certificates);
-
-			MockContext = new Mock<CertificatesDbContext>();
-			MockContext.Setup(c => c.CertificateSets).Returns(mockCertificateSets.Object);
-			MockContext.Setup(c => c.Certificates).Returns(mockCertificates.Object);
-			DbContext = MockContext.Object;
-		}
-
 		private CertificateSetsController GetController()
 		{
 			return new CertificateSetsController(MockContext.Object)
@@ -94,6 +25,7 @@ namespace CertificatesBackend.Tests
 				Configuration = new HttpConfiguration()
 			};
 		}
+
 		[TestMethod]
 		public void GetCertificateSets()
 		{
@@ -114,8 +46,8 @@ namespace CertificatesBackend.Tests
 			Assert.IsTrue(DbContext.CertificateSets.SingleOrDefault(c => c.Id == 1).IsInCertificateGeneratingStage);
 			while (DbContext.CertificateSets.SingleOrDefault(c => c.Id == 1).IsInCertificateGeneratingStage);
 			
-			Assert.AreEqual("24400222284", DbContext.Certificates.First().CodeValue);
-			Assert.AreEqual(100, DbContext.Certificates.Count());
+			Assert.AreEqual("24400222284", DbContext.Certificates.First(c => c.CertificateSetId == 1).CodeValue);
+			Assert.AreEqual(100, DbContext.Certificates.Count(c => c.CertificateSetId == 1));
 
 		}
 	}

@@ -25,11 +25,21 @@ namespace CertificatesBackend.DAL
 			});
 			context.SaveChanges();
 
+			context.Orders.Add(new Order()
+			{
+				UserExternalId = 1
+			});
+
+			context.SaveChanges();
+
 			context.Certificates.Add(new Certificate
 			{
 				CertificateSetId = 1,
-				CodeValue = "2440012384"
+				CodeValue = "2440012384",
+				OrderId = 1
 			});
+
+			
 			context.SaveChanges();
 		}
 	}

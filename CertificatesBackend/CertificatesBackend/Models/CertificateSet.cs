@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace CertificatesBackend.Models
 {
-	public class CertificateSet
+	public class CertificateSet: IEntityWithId
 	{
 		public int Id { get; set; }
 
@@ -53,8 +53,8 @@ namespace CertificatesBackend.Models
 		/// </summary>
 		[Required]
 		public int CostValue { get; set; }
-		[JsonIgnore]
-		public virtual Company Company { get; set; }
+		
+		public Company Company { get; set; }
 
 		public void GenerateCertificates(CertificatesDbContext dbContext)
 		{

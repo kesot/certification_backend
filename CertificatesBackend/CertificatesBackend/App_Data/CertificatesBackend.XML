@@ -516,12 +516,33 @@
             <summary>
             Получение списка заказов пользователя.
             </summary>
-            <param name="userId">Внешний id пользователя. (На бэкэнде юзера не хранятся).</param>
+            <param name="userId">Внешний id пользователя.</param>
             <returns>Список заказов</returns>
         </member>
         <member name="M:CertificatesBackend.Controllers.OrdersController.GetOrder(System.Int32)">
             <summary>
             Получение заказа по id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CertificatesBackend.Controllers.OrdersController.CreateForUser(System.Int32)">
+            <summary>
+            Создание заказа для пользователя
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CertificatesBackend.Controllers.OrdersController.ConfirmPayment(System.Int32)">
+            <summary>
+            Пометить заказ как оплаченный
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CertificatesBackend.Controllers.OrdersController.Cancel(System.Int32)">
+            <summary>
+            Отменить заказ
             </summary>
             <param name="id"></param>
             <returns></returns>
@@ -556,14 +577,29 @@
             Номинал сертификата
             </summary>
         </member>
-        <member name="P:CertificatesBackend.Models.Order.CreationDateTime">
+        <member name="P:CertificatesBackend.Models.Order.UserExternalId">
+            <summary>
+            Внешний Id пользователя(На бэкэнде юзера не хранятся).
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.Order.CreationDateTimeUtc">
             <summary>
             Дата создания заказа
             </summary>
         </member>
-        <member name="P:CertificatesBackend.Models.Order.PaymentDateTime">
+        <member name="P:CertificatesBackend.Models.Order.PaymentDateTimeUtc">
             <summary>
-            Дата оплаты заказа
+            Дата оплаты заказа. Null, пока не оплачен.
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.Order.IsCanceled">
+            <summary>
+            Был ли отменен заказ
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.Order.Certificates">
+            <summary>
+            Сертификаты в заказе
             </summary>
         </member>
     </members>

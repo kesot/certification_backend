@@ -31,7 +31,13 @@ namespace CertificatesBackend.Controllers
 			db = context;
 		}
 		
+		
 		// GET api/CertificateSets
+		/// <summary>
+		/// Все наборы сертификатов в бд
+		/// </summary>
+		/// <returns></returns>
+		[ResponseType(typeof(CertificateSet[]))]
 		public IHttpActionResult GetCertificateSets()
 		{
 			return Ok(db.CertificateSets.AsEnumerable());

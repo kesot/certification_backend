@@ -486,6 +486,12 @@
             Работа с наборами сертификатов
             </summary>
         </member>
+        <member name="M:CertificatesBackend.Controllers.CertificateSetsController.GetCertificateSets">
+            <summary>
+            Все наборы сертификатов в бд
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:CertificatesBackend.Controllers.CertificateSetsController.PutCertificateSet(System.Int32,CertificatesBackend.Models.CertificateSet)">
             <summary>
             Изменение набора сертификатов

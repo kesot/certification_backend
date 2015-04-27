@@ -1,5 +1,5 @@
 <section id="registration-data">
-	<form action="" method="post">
+	<form action="requestHandler.php" method="post">
 		<h2>Регистрация:</h2>
 		<ul>
 			<li>
@@ -7,6 +7,9 @@
 			</li>
 			<li>
 				<input type="text" id="secondname" name="secondname" placeholder="Имя">
+			</li>
+			<li>
+				<input type="text" id="patronumic" name="patronumic" placeholder="Отчество">
 			</li>
 			<li>
 				<input type="email" id="email" name="email" placeholder="Эл.почта">

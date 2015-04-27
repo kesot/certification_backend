@@ -9,7 +9,12 @@
 			</div>
 			<div class="data-cell"><h1>Certificado</h1></div>
 			<div class="data-cell">
-				<?include("cart-in-page.tpl");?>
+				<?//include("cart-in-page.php");?>
+				<form action="requestHandler.php" method="POST">
+					<input type="text" name="login">
+					<input type="password" name="password">
+					<input type="submit" value="go">
+				</form>
 			</div>
 		</div>
 	</div>

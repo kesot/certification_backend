@@ -519,6 +519,13 @@
             <param name="userId">Внешний id пользователя. (На бэкэнде юзера не хранятся).</param>
             <returns>Список заказов</returns>
         </member>
+        <member name="M:CertificatesBackend.Controllers.OrdersController.GetOrder(System.Int32)">
+            <summary>
+            Получение заказа по id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="P:CertificatesBackend.Models.CertificateSet.MaskString">
             <summary>
             Строка с номера штрихкода с маской. По ней генерятся конкретные коды сертификатов. Спецсимвол - ?. "3234????3455"
@@ -547,6 +554,16 @@
         <member name="P:CertificatesBackend.Models.CertificateSet.CostValue">
             <summary>
             Номинал сертификата
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.Order.CreationDateTime">
+            <summary>
+            Дата создания заказа
+            </summary>
+        </member>
+        <member name="P:CertificatesBackend.Models.Order.PaymentDateTime">
+            <summary>
+            Дата оплаты заказа
             </summary>
         </member>
     </members>

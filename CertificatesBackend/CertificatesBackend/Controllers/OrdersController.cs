@@ -24,7 +24,7 @@ namespace CertificatesBackend.Controllers
 		/// <summary>
 		/// Получение списка заказов пользователя.
 		/// </summary>
-		/// <param name="userId">Внешний id пользователя. (На бэкэнде юзера не хранятся).</param>
+		/// <param name="userId">Внешний id пользователя.</param>
 		/// <returns>Список заказов</returns>
 		[Route("api/Orders/ByUser/{userid}")]
 		[ResponseType(typeof(Order[]))]
@@ -33,7 +33,11 @@ namespace CertificatesBackend.Controllers
 			return db.Orders.Where(o => o.UserExternalId == userId);
 		}
 
-		// GET api/Orders/5
+		/// <summary>
+		/// Получение заказа по id.
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
 		[ResponseType(typeof(Order))]
 		public IHttpActionResult GetOrder(int id)
 		{
@@ -44,40 +48,6 @@ namespace CertificatesBackend.Controllers
 			}
 
 			return Ok(order);
-		}
-
-		// PUT api/Orders/5
-		public IHttpActionResult PutOrder(int id, Order order)
-		{
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
-
-			if (id != order.Id)
-			{
-				return BadRequest();
-			}
-
-			db.Entry(order).State = EntityState.Modified;
-
-			try
-			{
-				db.SaveChanges();
-			}
-			catch (DbUpdateConcurrencyException)
-			{
-				if (!OrderExists(id))
-				{
-					return NotFound();
-				}
-				else
-				{
-					throw;
-				}
-			}
-
-			return StatusCode(HttpStatusCode.NoContent);
 		}
 
 		// POST api/Orders

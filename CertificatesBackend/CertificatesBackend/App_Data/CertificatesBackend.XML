@@ -507,6 +507,18 @@
             <param name="id">id набора сертификатов</param>
             <returns></returns>
         </member>
+        <member name="T:CertificatesBackend.Controllers.OrdersController">
+            <summary>
+            Работа с заказами.
+            </summary>
+        </member>
+        <member name="M:CertificatesBackend.Controllers.OrdersController.GetOrders(System.Int32)">
+            <summary>
+            Получение списка заказов пользователя.
+            </summary>
+            <param name="userId">Внешний id пользователя. (На бэкэнде юзера не хранятся).</param>
+            <returns>Список заказов</returns>
+        </member>
         <member name="P:CertificatesBackend.Models.CertificateSet.MaskString">
             <summary>
             Строка с номера штрихкода с маской. По ней генерятся конкретные коды сертификатов. Спецсимвол - ?. "3234????3455"

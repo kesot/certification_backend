@@ -53,8 +53,8 @@ namespace CertificatesBackend.Models
 		/// </summary>
 		[Required]
 		public int CostValue { get; set; }
-		
-		public Company Company { get; set; }
+
+		public virtual Company Company { get; set; }
 
 		public void GenerateCertificates(CertificatesDbContext dbContext)
 		{

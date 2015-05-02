@@ -88,10 +88,39 @@ namespace CertificatesBackend.Controllers
 		}
 
 		/// <summary>
+		/// Добавление в заказ сертификатов. Выполняется атомарно (либо все, либо ни один)
+		/// </summary>
+		/// <param name="id">id заказа</param>
+		/// <param name="certificateIds">JSON массив id сертификатов, которые добавляем в заказ</param>
+		/// <returns></returns>
+		[HttpPost]
+		[Route("api/Orders/{id}/add-certificates")]
+		[ResponseType(typeof (ResponseMessageResult))]
+		public IHttpActionResult AddCertificate(int id, int[] certificateIds)
+		{
+			var order = db.Orders.TryGetById(id);
+			if (order == null)
+				return BadRequest(string.Format("Order #{0} not found", id));
+
+			foreach (var certificateId in certificateIds)
+			{
+				var certificate = db.Certificates.TryGetById(certificateId);
+				if (certificate == null)
+					return BadRequest(string.Format("Certificate #{0} not found", id));
+				db.Entry(certificate).State = EntityState.Modified;
+				certificate.OrderId = id;
+			}
+			
+			db.SaveChanges();
+
+			return ResponseMessage(new HttpResponseMessage(HttpStatusCode.Accepted));
+		}
+
+		/// <summary>
 		/// Пометить заказ как оплаченный
 		/// </summary>
-		/// <param name="id"></param>
-		/// <returns></returns>
+		/// <param name="id">id заказа</param>
+		/// <returns>Сертификаты входившие в заказ</returns>
 		[HttpPost]
 		[Route("api/Orders/{id}/confirm-payment")]
 		[ResponseType(typeof (Certificate[]))]
@@ -112,7 +141,7 @@ namespace CertificatesBackend.Controllers
 		}
 
 		/// <summary>
-		/// Отменить заказ
+		/// Отменить заказ. Невозможно отменить оплаченный заказ.
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>

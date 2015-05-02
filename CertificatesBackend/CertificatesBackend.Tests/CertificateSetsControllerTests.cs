@@ -30,7 +30,7 @@ namespace CertificatesBackend.Tests
 		public void GetCertificateSets()
 		{
 			var controller = GetController();
-			var acquiredCertificateSets = controller.GetCertificateSets();
+			var acquiredCertificateSets = controller.GetCertificateSets(0, 10);
 			var response = ((OkNegotiatedContentResult<IEnumerable<CertificateSet>>)acquiredCertificateSets).Content.ToList();
 			Assert.AreEqual(2, response.Count);
 			Assert.AreEqual("244??222284", response[0].MaskString);

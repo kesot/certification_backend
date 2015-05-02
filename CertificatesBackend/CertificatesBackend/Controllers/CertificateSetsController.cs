@@ -32,15 +32,57 @@ namespace CertificatesBackend.Controllers
 		}
 		
 		
-		// GET api/CertificateSets
 		/// <summary>
-		/// Все наборы сертификатов в бд
+		/// Все наборы сертификатов в бд, c пэйджингом
 		/// </summary>
+		/// <param name="pageIndex">По умолчанию 0</param>
+		/// <param name="pageSize">По умолчанию 10</param>
+		/// <param name="onlyWithAvailable">Только с доступными для заказа сертификатами</param> 
 		/// <returns></returns>
+		[HttpGet]
+		[Route("api/CertificateSets")]
 		[ResponseType(typeof(CertificateSet[]))]
-		public IHttpActionResult GetCertificateSets()
+		public IHttpActionResult GetCertificateSets(int pageIndex = 0, int pageSize = 10, bool onlyWithAvailable = false)
 		{
-			return Ok(db.CertificateSets.AsEnumerable());
+			return Ok(db.CertificateSets.Where(cs => db.Certificates.Where(c => c.CertificateSetId == cs.Id).Any(c => c.OrderId == null) || !onlyWithAvailable)
+				.OrderBy(c => c.Id).Skip(pageIndex * pageSize)
+				.Take(pageSize)
+				.AsEnumerable());
+		}
+
+
+		/// <summary>
+		/// Наборы кодов по компании
+		/// </summary>
+		/// <param name="companyId"></param>
+		/// <param name="onlyWithAvailable">Только с доступными для заказа сертификатами</param> 
+		/// <returns></returns>
+		[Route("api/CertificateSets/ByCompany")]
+		[ResponseType(typeof (CertificateSet[]))]
+		[HttpGet]
+		public IHttpActionResult GetCertificatesByCompany(int companyId, bool onlyWithAvailable = false)
+		{
+			return Ok(db.CertificateSets.Where(cs => db.Certificates.Where(c => c.CertificateSetId == cs.Id).Any(c => c.OrderId == null) || !onlyWithAvailable)
+				.Where(c => c.CompanyId == companyId));
+		}
+
+		/// <summary>
+		/// Получение первого доступного сертификата из набора. Если в наборе нет доступных - NotFound
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		[Route("api/CertificateSets/{id}/first-available-certificate")]
+		[ResponseType(typeof(Certificate))]
+		[HttpGet]
+		public IHttpActionResult GetFirstAvailable(int id)
+		{
+			var certificateSet = db.CertificateSets.TryGetById(id);
+			if (certificateSet == null)
+				return BadRequest(string.Format("CertificateSet #{0} not found", id));
+			var certificate = db.Certificates.First(c => c.OrderId == null && c.CertificateSetId == id);
+			if (certificate == null)
+				return NotFound();
+			return Ok(certificate);
 		}
 
 		// GET api/CertificateSets/5
@@ -121,7 +163,7 @@ namespace CertificatesBackend.Controllers
 		/// </summary>
 		/// <param name="id">id набора сертификатов</param>
 		/// <returns></returns>
-		[Route("api/CertificateSets/{id:int}/GenerateCertificates")]
+		[Route("api/CertificateSets/{id:int}/generate-certificates")]
 		[HttpPost]
 		[ResponseType(typeof(ResponseMessageResult))]
 		public IHttpActionResult GenereteCertificates(int id)

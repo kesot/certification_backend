@@ -10,6 +10,7 @@ namespace CertificatesBackend.Models
 		public int? OrderId { get; set; }
 
 		public string CodeValue { get; set; }
+		[JsonIgnore]
 		public CertificateSet CertificateSet { get; set; }
 		[JsonIgnore]
 		public virtual Order Order { get; set; } 

@@ -7,7 +7,7 @@ using CertificatesBackend.Attributes;
 
 namespace CertificatesBackend.Controllers
 {
-	[DebugLoggerActionFilter]
+	// [DebugLoggerActionFilter]
 	public abstract class BaseController : ApiController
 	{
 	}

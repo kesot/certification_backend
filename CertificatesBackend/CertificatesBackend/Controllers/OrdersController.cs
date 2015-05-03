@@ -17,7 +17,7 @@ namespace CertificatesBackend.Controllers
 	/// <summary>
 	/// Работа с заказами.
 	/// </summary>
-	public class OrdersController : ApiController
+	public class OrdersController : BaseController
 	{
 		private readonly CertificatesDbContext db = new CertificatesDbContext();
 

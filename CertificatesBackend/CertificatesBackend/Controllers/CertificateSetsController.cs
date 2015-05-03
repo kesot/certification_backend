@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Http.Results;
+using CertificatesBackend.Attributes;
 using CertificatesBackend.DAL;
 using CertificatesBackend.Models;
 
@@ -18,7 +19,7 @@ namespace CertificatesBackend.Controllers
 	/// <summary>
 	/// Работа с наборами сертификатов
 	/// </summary>
-	public class CertificateSetsController : ApiController
+	public class CertificateSetsController : BaseController
 	{
 		private CertificatesDbContext db = new CertificatesDbContext();
 

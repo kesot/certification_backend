@@ -10,7 +10,7 @@ using CertificatesBackend.Models;
 
 namespace CertificatesBackend.Controllers
 {
-	public class CertificatesController : ApiController
+	public class CertificatesController : BaseController
 	{
 		private CertificatesDbContext db = new CertificatesDbContext();
 

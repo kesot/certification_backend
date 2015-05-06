@@ -37,22 +37,21 @@ namespace CertificatesBackend
 		protected override async Task<HttpResponseMessage> SendAsync(
 			  HttpRequestMessage request, CancellationToken cancellationToken)
 		{
-			//logging request body
 			string requestString = request.ToString();
 			string requestBody = await request.Content.ReadAsStringAsync();
 			Trace.WriteLine(requestBody);
-			string path = HttpContext.Current.Server.MapPath("~/App_Data/Log1.txt");
-			File.AppendAllText(path, "Request: " +
-				DateTime.UtcNow.ToString("G") + " " + requestString + "\r\n" + "Reauest body: " + requestBody + "\r\n");
+			Logger.Instance.WriteToLog("Request: " +
+				DateTime.UtcNow.ToString("G") + " " + requestString + "\r\n" + "Reauest body: " + requestBody);
 
 			//let other handlers process the request
 			return await base.SendAsync(request, cancellationToken)
 				 .ContinueWith(task =>
 				 {
+
 					 //once response is ready, log it
 					 var responseBody = task.Result.Content.ReadAsStringAsync().Result;
-					 File.AppendAllText(path, "Respnse: " + 
-						DateTime.UtcNow.ToString("G") + " " + responseBody + "\r\n");
+					 Logger.Instance.WriteToLog("Respnse body: " + 
+						DateTime.UtcNow.ToString("G") + " " + responseBody);
 
 					 return task.Result;
 				 });

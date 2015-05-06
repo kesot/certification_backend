@@ -52,3 +52,34 @@ Request: 03.05.2015 19:34:40 Method: GET, RequestUri: 'http://localhost:55693/ap
 }
 Reauest body: 
 Respnse: 03.05.2015 19:34:40 {"Message":"No HTTP resource was found that matches the request URI 'http://localhost:55693/api/orderdds/1'.","MessageDetail":"No type was found that matches the controller named 'orderdds'."}
+Request: 03.05.2015 19:41:59 Method: GET, RequestUri: 'http://localhost:55693/api/orderdds/1', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Request: 03.05.2015 19:41:59 Method: GET, RequestUri: 'http://localhost:55693/api/orderdds/1', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Request: 03.05.2015 19:41:59 Method: GET, RequestUri: 'http://localhost:55693/api/orderdds/1', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Request: 03.05.2015 19:41:59 Method: GET, RequestUri: 'http://localhost:55693/api/orderdds/1', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Request: 03.05.2015 19:41:59 Method: GET, RequestUri: 'http://localhost:55693/api/orderdds/1', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Respnse body: 03.05.2015 19:41:59 {"Message":"No HTTP resource was found that matches the request URI 'http://localhost:55693/api/orderdds/1'.","MessageDetail":"No type was found that matches the controller named 'orderdds'."}

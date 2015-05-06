@@ -54,3 +54,139 @@ System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent03.05.2015 19:10:
 {
   Content-Type: application/json; charset=utf-8
 }
+Request: 06.05.2015 22:25:56 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Connection: keep-alive
+  Accept: text/html
+  Accept: application/xhtml+xml
+  Accept: application/xml; q=0.9
+  Accept: image/webp
+  Accept: */*; q=0.8
+  Accept-Encoding: gzip
+  Accept-Encoding: deflate
+  Accept-Encoding: sdch
+  Accept-Language: ru-RU
+  Accept-Language: ru; q=0.8
+  Accept-Language: en-US; q=0.6
+  Accept-Language: en; q=0.4
+  Host: localhost:55693
+  User-Agent: Mozilla/5.0
+  User-Agent: (Windows NT 6.3; WOW64)
+  User-Agent: AppleWebKit/537.36
+  User-Agent: (KHTML, like Gecko)
+  User-Agent: Chrome/42.0.2311.135
+  User-Agent: Safari/537.36
+}
+Reauest body: 
+Request: 06.05.2015 22:26:36 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Connection: keep-alive
+  Accept: text/html
+  Accept: application/xhtml+xml
+  Accept: application/xml; q=0.9
+  Accept: image/webp
+  Accept: */*; q=0.8
+  Accept-Encoding: gzip
+  Accept-Encoding: deflate
+  Accept-Encoding: sdch
+  Accept-Language: ru-RU
+  Accept-Language: ru; q=0.8
+  Accept-Language: en-US; q=0.6
+  Accept-Language: en; q=0.4
+  Host: localhost:55693
+  User-Agent: Mozilla/5.0
+  User-Agent: (Windows NT 6.3; WOW64)
+  User-Agent: AppleWebKit/537.36
+  User-Agent: (KHTML, like Gecko)
+  User-Agent: Chrome/42.0.2311.135
+  User-Agent: Safari/537.36
+}
+Reauest body: 
+Request: 06.05.2015 22:26:36 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Connection: keep-alive
+  Accept: text/html
+  Accept: application/xhtml+xml
+  Accept: application/xml; q=0.9
+  Accept: image/webp
+  Accept: */*; q=0.8
+  Accept-Encoding: gzip
+  Accept-Encoding: deflate
+  Accept-Encoding: sdch
+  Accept-Language: ru-RU
+  Accept-Language: ru; q=0.8
+  Accept-Language: en-US; q=0.6
+  Accept-Language: en; q=0.4
+  Host: localhost:55693
+  User-Agent: Mozilla/5.0
+  User-Agent: (Windows NT 6.3; WOW64)
+  User-Agent: AppleWebKit/537.36
+  User-Agent: (KHTML, like Gecko)
+  User-Agent: Chrome/42.0.2311.135
+  User-Agent: Safari/537.36
+}
+Reauest body: 
+Request: 06.05.2015 22:26:40 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Connection: keep-alive
+  Accept: text/html
+  Accept: application/xhtml+xml
+  Accept: application/xml; q=0.9
+  Accept: image/webp
+  Accept: */*; q=0.8
+  Accept-Encoding: gzip
+  Accept-Encoding: deflate
+  Accept-Encoding: sdch
+  Accept-Language: ru-RU
+  Accept-Language: ru; q=0.8
+  Accept-Language: en-US; q=0.6
+  Accept-Language: en; q=0.4
+  Host: localhost:55693
+  User-Agent: Mozilla/5.0
+  User-Agent: (Windows NT 6.3; WOW64)
+  User-Agent: AppleWebKit/537.36
+  User-Agent: (KHTML, like Gecko)
+  User-Agent: Chrome/42.0.2311.135
+  User-Agent: Safari/537.36
+}
+Reauest body: 
+Request: 06.05.2015 22:27:48 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Request: 06.05.2015 22:27:48 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Respnse body: 06.05.2015 22:27:51 [{"Company":{"Id":1,"Name":"MVideo"},"Id":1,"MaskString":"244???2384","AdministrativeName":"1000 Рублевые сертификаты со скидкой","Name":"Подарочный сертификат на 1000 р","Descitption":"CertificateSet descr","CompanyId":1,"AllCertificatesGenerated":false,"Price":900,"CostValue":1000}]
+Request: 06.05.2015 22:27:48 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Respnse body: 06.05.2015 22:27:51 [{"Company":{"Id":1,"Name":"MVideo"},"Id":1,"MaskString":"244???2384","AdministrativeName":"1000 Рублевые сертификаты со скидкой","Name":"Подарочный сертификат на 1000 р","Descitption":"CertificateSet descr","CompanyId":1,"AllCertificatesGenerated":false,"Price":900,"CostValue":1000}]
+Request: 06.05.2015 22:28:30 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Request: 06.05.2015 22:27:48 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Respnse body: 06.05.2015 22:27:51 [{"Company":{"Id":1,"Name":"MVideo"},"Id":1,"MaskString":"244???2384","AdministrativeName":"1000 Рублевые сертификаты со скидкой","Name":"Подарочный сертификат на 1000 р","Descitption":"CertificateSet descr","CompanyId":1,"AllCertificatesGenerated":false,"Price":900,"CostValue":1000}]
+Request: 06.05.2015 22:28:30 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=2', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Respnse body: 06.05.2015 22:28:46 [{"Company":{"Id":1,"Name":"MVideo"},"Id":1,"MaskString":"244???2384","AdministrativeName":"1000 Рублевые сертификаты со скидкой","Name":"Подарочный сертификат на 1000 р","Descitption":"CertificateSet descr","CompanyId":1,"AllCertificatesGenerated":false,"Price":900,"CostValue":1000}]

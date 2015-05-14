@@ -34,6 +34,24 @@ class Users(Base):
                 "login": self.login, "password": self.password}
 
 
+class Clients(Base):
+    __tablename__ = "clients"
+    id = Column(Integer, primary_key=True)
+    login = Column(String, nullable=False, unique=True)
+    password = Column(String, nullable=False)
+
+    def __init__(self, data):
+        self.update_dict(data)
+
+    def update_dict(self, data):
+        for key in data:
+            if hasattr(self, key):
+                setattr(self, key, data[key])
+
+    def to_json(self):
+        return {"login": self.login, "password": self.password}
+
+
 if __name__ == "__main__":
     engine = create_engine(CONNECTION_ADDRESS)
     Base.metadata.create_all(engine)

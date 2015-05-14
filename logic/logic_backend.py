@@ -6,12 +6,13 @@ import requests
 import logging
 import sys
 sys.path.append("../")
-from defines import LOGIC_PORT, SESSION_PORT, USERS_PORT, LOG_FORMAT, LOG_LOGIC_FNAME
+from defines import LOGIC_PORT, SESSION_PORT, USERS_PORT, CERTIFICATES_PORT, LOG_FORMAT, LOG_LOGIC_FNAME
 
 define("debug", default=True)
 
 users_url = "http://localhost:" + str(USERS_PORT)
 session_url = "http://localhost:" + str(SESSION_PORT)
+certificates_url = "http://localhost" + str(CERTIFICATES_PORT)
 
 
 class AddUserHandler(tornado.web.RequestHandler):

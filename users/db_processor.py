@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, exc
 from sqlalchemy.orm import sessionmaker
-from db_tables import CONNECTION_ADDRESS, Users, Base
+from db_tables import CONNECTION_ADDRESS, Users, Clients, Base
 from defines import LOG_FORMAT, LOG_USERS_FNAME
 import logging
 
@@ -13,42 +13,53 @@ class DBProcessor:
         db_session = sessionmaker(bind=engine)
         self.session = db_session()
 
-    def add_user(self, user):
+    def add_entity(self, entity):
         try:
-            self.session.add(user)
+            self.session.add(entity)
             self.session.commit()
             return True
         except exc.SQLAlchemyError as e:
-            logging.error("database add_user: {0}".format(str(e)))
+            logging.error("database add_entity: {0}".format(str(e)))
             self.session.rollback()
         return False
 
-    def remove_user(self, user):
+    def remove_entity(self, entity):
         try:
-            self.session.delete(user)
+            self.session.delete(entity)
             self.session.commit()
             return True
         except exc.SQLAlchemyError as e:
-            logging.error("database remove_user: {0}".format(str(e)))
+            logging.error("database remove_entity: {0}".format(str(e)))
             self.session.rollback()
         return False
 
-    def get_user(self, login):
+    def get_entity(self, login, entity_type):
         try:
-            user = self.session.query(Users).filter(Users.login == login).one()
-            return user
+            if entity_type == 0:
+                entity = self.session.query(Users).filter(Users.login == login).one()
+            elif entity_type == 1:
+                entity = self.session.query(Clients).filter(Clients.login == login).one()
+            else:
+                raise exc.SQLAlchemyError("unknown entity type")
+            return entity
         except exc.SQLAlchemyError as e:
-            logging.error("database remove_user: {0}".format(str(e)))
+            logging.error("database get_entity: {0}".format(str(e)))
             self.session.rollback()
         return None
 
-    def update_user(self, data):
+    def update_entity(self, data, entity_type):
         try:
-            user = self.session.query(Users).filter(Users.login == data["login"]).one()
-            user.update_dict(data)
+            if entity_type == 0:
+                entity = self.session.query(Users).filter(Users.login == data["login"]).one()
+                entity.update_dict(data)
+            elif entity_type == 1:
+                entity = self.session.query(Clients).filter(Clients.login == data["login"]).one()
+                entity.update_dict(data)
+            else:
+                raise exc.SQLAlchemyError("unknown entity type")
             self.session.commit()
             return True
         except exc.SQLAlchemyError as e:
-            logging.error("database remove_user: {0}".format(str(e)))
+            logging.error("database update_entity: {0}".format(str(e)))
             self.session.rollback()
         return False

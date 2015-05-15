@@ -16,21 +16,33 @@ class TestSessionBackendMethods(unittest.TestCase):
         self.logout_method_url = session_url + "/logout"
 
     def test_bad_login_method(self):
-        url = self.login_method_url + "?login={0}&password={1}".format("bad", "bad")
+        url = self.login_method_url
         result = requests.get(url).json()
         self.assertEqual(result["answer"], 0)
-        url = self.login_method_url + "?login={0}&password={1}".format(self.login, "bad")
+        url += "?login=bad"
+        result = requests.get(url).json()
+        self.assertEqual(result["answer"], 0)
+        url += "&password=bad"
+        result = requests.get(url).json()
+        self.assertEqual(result["answer"], 0)
+        url += "&type=0"
         result = requests.get(url).json()
         self.assertEqual(result["answer"], 0)
 
     def test_check_bad_method(self):
-        url = self.check_method_url + "?code={0}".format("bad")
+        url = self.check_method_url
+        result = requests.get(url)
+        self.assertEqual(result.json()["answer"], 0)
+        url += "?code=bad"
         result = requests.get(url)
         self.assertEqual(result.json()["answer"], 0)
 
     def test_logout_bad_method(self):
-        data = {'code': 'bad'}
+        data = {}
         headers = {'Content-type': 'application/json'}
+        result = requests.delete(self.logout_method_url, data=json.dumps(data), headers=headers)
+        self.assertEqual(result.json()["answer"], 0)
+        data["code"] = "bad"
         result = requests.delete(self.logout_method_url, data=json.dumps(data), headers=headers)
         self.assertEqual(result.json()["answer"], 0)
 

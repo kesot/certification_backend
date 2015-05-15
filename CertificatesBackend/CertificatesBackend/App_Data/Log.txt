@@ -190,3 +190,67 @@ Request: 06.05.2015 22:28:30 Method: GET, RequestUri: 'http://localhost:55693/ap
 }
 Reauest body: 
 Respnse body: 06.05.2015 22:28:46 [{"Company":{"Id":1,"Name":"MVideo"},"Id":1,"MaskString":"244???2384","AdministrativeName":"1000 Рублевые сертификаты со скидкой","Name":"Подарочный сертификат на 1000 р","Descitption":"CertificateSet descr","CompanyId":1,"AllCertificatesGenerated":false,"Price":900,"CostValue":1000}]
+Request: 15.05.2015 21:48:51 Method: POST, RequestUri: 'http://localhost:55693/api/companies', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 19
+  Content-Type: application/json
+}
+Reauest body: {
+"Name": "hui"
+}
+Request: 15.05.2015 21:48:51 Method: POST, RequestUri: 'http://localhost:55693/api/companies', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 19
+  Content-Type: application/json
+}
+Reauest body: {
+"Name": "hui"
+}
+Respnse body: 15.05.2015 21:48:58 {"Id":2,"Name":"hui"}
+Request: 15.05.2015 21:48:51 Method: POST, RequestUri: 'http://localhost:55693/api/companies', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 19
+  Content-Type: application/json
+}
+Reauest body: {
+"Name": "hui"
+}
+Respnse body: 15.05.2015 21:48:58 {"Id":2,"Name":"hui"}
+Request: 15.05.2015 21:50:59 Method: GET, RequestUri: 'http://localhost:55693/api/companies', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 19
+  Content-Type: application/json
+}
+Reauest body: {
+"Name": "hui"
+}
+Request: 15.05.2015 21:48:51 Method: POST, RequestUri: 'http://localhost:55693/api/companies', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 19
+  Content-Type: application/json
+}
+Reauest body: {
+"Name": "hui"
+}
+Respnse body: 15.05.2015 21:48:58 {"Id":2,"Name":"hui"}
+Request: 15.05.2015 21:50:59 Method: GET, RequestUri: 'http://localhost:55693/api/companies', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 19
+  Content-Type: application/json
+}
+Reauest body: {
+"Name": "hui"
+}
+Respnse body: 15.05.2015 21:50:59 [{"Id":1,"Name":"MVideo"},{"Id":2,"Name":"hui"}]

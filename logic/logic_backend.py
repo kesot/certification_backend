@@ -21,16 +21,16 @@ class AddUserHandler(tornado.web.RequestHandler):
             data = tornado.escape.json_decode(self.request.body)
             headers = {'Content-type': 'application/json'}
 
-            answer = requests.post(users_url + "/add_user", data=json.dumps(data), headers=headers).json()
-            if answer["answer"] == 0:
-                raise Exception(answer["error"])
+            answer = requests.post(users_url + "/add_user", data=json.dumps(data), headers=headers)
+            if answer.status_code != 200:
+                raise Exception(answer.json()["error"])
             else:
-                self.write(answer)
+                self.set_status(200)
 
         except Exception as e:
             logging.error("add_user request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 class GetUserHandler(tornado.web.RequestHandler):
@@ -38,24 +38,27 @@ class GetUserHandler(tornado.web.RequestHandler):
         try:
             code = self.get_argument("code")
 
-            answer = requests.get(session_url+"/check?code={0}".format(code)).json()
-            if answer["answer"] == 0:
-                raise Exception(answer["error"])
+            answer = requests.get(session_url+"/check?code={0}".format(code))
+            answer_data = answer.json()
+            if answer.status_code != 200:
+                raise Exception(answer_data["error"])
             else:
-                login = answer["login"]
-                entity_type = answer["type"]
+                login = answer_data["login"]
+                entity_type = answer_data["type"]
                 url = users_url + "/get_user?login={0}&type={1}".format(login, entity_type)
 
-                answer = requests.get(url).json()
-                if answer["answer"] == 0:
-                    raise Exception(answer["error"])
+                answer = requests.get(url)
+                answer_data = answer.json()
+                if answer.status_code != 200:
+                    raise Exception(answer_data["error"])
                 else:
-                    self.write(answer)
+                    self.set_status(200)
+                    self.write(answer_data)
 
         except Exception as e:
             logging.error("get_user request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 class RemoveUserHandler(tornado.web.RequestHandler):
@@ -64,24 +67,25 @@ class RemoveUserHandler(tornado.web.RequestHandler):
             data = tornado.escape.json_decode(self.request.body)
             code = data["code"]
 
-            answer = requests.get(session_url+"/check?code={0}".format(code)).json()
-            if answer["answer"] == 0:
-                raise Exception(answer["error"])
+            answer = requests.get(session_url+"/check?code={0}".format(code))
+            answer_data = answer.json()
+            if answer.status_code != 200:
+                raise Exception(answer_data["error"])
             else:
                 headers = {"Content-type": "application/json"}
                 requests.delete(session_url + "/logout", data=json.dumps(data), headers=headers)
 
-                data = {"login": answer["login"], "type": answer["type"]}
-                answer = requests.delete(users_url + "/remove_user", data=json.dumps(data), headers=headers).json()
-                if answer["answer"] == 0:
-                    raise Exception(answer["error"])
+                data = {"login": answer_data["login"], "type": answer_data["type"]}
+                answer = requests.delete(users_url + "/remove_user", data=json.dumps(data), headers=headers)
+                if answer.status_code != 200:
+                    raise Exception(answer.json()["error"])
                 else:
-                    self.write(answer)
+                    self.set_status(200)
 
         except Exception as e:
             logging.error("remove_user request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 class UpdateUserHandler(tornado.web.RequestHandler):
@@ -90,24 +94,25 @@ class UpdateUserHandler(tornado.web.RequestHandler):
             data = tornado.escape.json_decode(self.request.body)
             code = data["code"]
 
-            answer = requests.get(session_url+"/check?code={0}".format(code)).json()
-            if answer["answer"] == 0:
-                raise Exception(answer["error"])
+            answer = requests.get(session_url+"/check?code={0}".format(code))
+            answer_data = answer.json()
+            if answer.status_code != 200:
+                raise Exception(answer_data["error"])
             else:
-                data["login"] = answer["login"]
-                data["type"] = answer["type"]
+                data["login"] = answer_data["login"]
+                data["type"] = answer_data["type"]
                 headers = {"Content-type": "application/json"}
 
-                answer = requests.put(users_url + "/update_user", data=json.dumps(data), headers=headers).json()
-                if answer["answer"] == 0:
-                    raise Exception(answer["error"])
+                answer = requests.put(users_url + "/update_user", data=json.dumps(data), headers=headers)
+                if answer.status_code != 200:
+                    raise Exception(answer.json()["error"])
                 else:
-                    self.write(answer)
+                    self.set_status(200)
 
         except Exception as e:
             logging.error("get_user request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 class LoginUserHandler(tornado.web.RequestHandler):
@@ -118,16 +123,18 @@ class LoginUserHandler(tornado.web.RequestHandler):
             entity_type = self.get_argument("type")
 
             url = session_url + "/login?login={0}&password={1}&type={2}".format(login, password, entity_type)
-            answer = requests.get(url).json()
-            if answer["answer"] == 0:
-                raise Exception(answer["error"])
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if answer.status_code != 200:
+                raise Exception(answer_data["error"])
             else:
-                self.write(answer)
+                self.set_status(200)
+                self.write(answer_data)
 
         except Exception as e:
                 logging.error("login request: {0}".format(str(e)))
                 self.set_status(400)
-                self.write(json.dumps({"answer": 0, "error": str(e)}))
+                self.write(json.dumps({"error": str(e)}))
 
 
 class LogoutUserHandler(tornado.web.RequestHandler):
@@ -136,16 +143,16 @@ class LogoutUserHandler(tornado.web.RequestHandler):
             data = tornado.escape.json_decode(self.request.body)
             headers = {"Content-type": "application/json"}
 
-            answer = requests.delete(session_url+"/logout", data=json.dumps(data), headers=headers).json()
-            if answer["answer"] == 0:
-                raise Exception(answer["error"])
+            answer = requests.delete(session_url+"/logout", data=json.dumps(data), headers=headers)
+            if answer.status_code != 200:
+                raise Exception(answer.json()["error"])
             else:
-                self.write(answer)
+                self.set_status(200)
 
         except Exception as e:
                 logging.error("logout request: {0}".format(str(e)))
                 self.set_status(400)
-                self.write(json.dumps({"answer": 0, "error": str(e)}))
+                self.write(json.dumps({"error": str(e)}))
 
 
 if __name__ == "__main__":

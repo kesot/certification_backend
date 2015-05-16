@@ -39,7 +39,7 @@ class TestDBFunctions(unittest.TestCase):
         self.assertFalse(self.db.remove_entity(user))
 
     def test_client(self):
-        data = {"login": "test_client", "password": self.password}
+        data = {"login": "test_client", "password": self.password, "firm_id": 1}
         client = Clients(data)
         self.assertTrue(self.db.add_entity(client))
 

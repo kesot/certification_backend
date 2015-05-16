@@ -26,14 +26,14 @@ class AddUserHandler(tornado.web.RequestHandler):
                 raise Exception("Unknown value for 'type' argument")
 
             if db.add_entity(entity):
-                self.write(json.dumps({"answer": 1}))
+                self.set_status(200)
             else:
                 raise Exception("Can't add new user")
 
         except Exception as e:
             logging.error("add_user request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 class GetUserHandler(tornado.web.RequestHandler):
@@ -46,14 +46,13 @@ class GetUserHandler(tornado.web.RequestHandler):
             if not entity:
                 raise Exception("Can't find such user {0}".format(login))
             else:
-                user_json = entity.to_json()
-                user_json["answer"] = 1
-                self.write(json.dumps(user_json, ensure_ascii=False))
+                self.set_status(200)
+                self.write(json.dumps(entity.to_json(), ensure_ascii=False))
 
         except Exception as e:
             logging.error("get_user request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 class RemoveUserHandler(tornado.web.RequestHandler):
@@ -73,14 +72,14 @@ class RemoveUserHandler(tornado.web.RequestHandler):
                 raise Exception("Can't find user with login {0}".format(login))
             else:
                 if db.remove_entity(entity):
-                    self.write({"answer": 1})
+                    self.set_status(200)
                 else:
                     raise Exception("Can't remove user with login {0}".format(login))
 
         except Exception as e:
             logging.error("remove_user request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 class UpdateUserHandler(tornado.web.RequestHandler):
@@ -97,12 +96,12 @@ class UpdateUserHandler(tornado.web.RequestHandler):
             if not db.update_entity(data, entity_type):
                 raise Exception("Can't update user with login {0}".format(data["login"]))
             else:
-                self.write(json.dumps({"answer": 1}))
+                self.set_status(200)
 
         except Exception as e:
             logging.error("update_user request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 if __name__ == "__main__":

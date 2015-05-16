@@ -39,6 +39,7 @@ class Clients(Base):
     id = Column(Integer, primary_key=True)
     login = Column(String, nullable=False, unique=True)
     password = Column(String, nullable=False)
+    firm_id = Column(Integer, nullable=False)
 
     def __init__(self, data):
         self.update_dict(data)
@@ -49,7 +50,7 @@ class Clients(Base):
                 setattr(self, key, data[key])
 
     def to_json(self):
-        return {"login": self.login, "password": self.password}
+        return {"login": self.login, "password": self.password, "firm_id": self.firm_id}
 
 
 if __name__ == "__main__":

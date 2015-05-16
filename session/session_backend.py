@@ -23,21 +23,23 @@ class LoginUserHandler(tornado.web.RequestHandler):
             password = self.get_argument("password")
             entity_type = int(self.get_argument("type"))
 
-            answer = requests.get(users_url+"/get_user?login={0}&type={1}".format(login, entity_type)).json()
-            if answer["answer"] == 0:
-                raise Exception(answer["error"])
+            answer = requests.get(users_url+"/get_user?login={0}&type={1}".format(login, entity_type))
+            answer_data = answer.json()
+            if answer.status_code != 200:
+                raise Exception(answer_data["error"])
 
-            if password != answer["password"]:
+            if password != answer_data["password"]:
                 raise Exception("Incorrect login or password")
             else:
                 code = "".join(str(uuid4()).split("-"))
                 connections_cache[code] = (login, entity_type, time.time() + EXPIRATION_TIME)
-                self.write(json.dumps({"answer": 1, "code": code}))
+                self.set_status(200)
+                self.write(json.dumps({"code": code}))
 
         except Exception as e:
             logging.error("login request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 class CheckUserAccessHandler(tornado.web.RequestHandler):
@@ -51,7 +53,8 @@ class CheckUserAccessHandler(tornado.web.RequestHandler):
                     login = connection_info[0]
                     entity_type = connection_info[1]
                     connections_cache[code] = (login, entity_type, time.time() + EXPIRATION_TIME)
-                    self.write(json.dumps({"answer": 1, "login": login, "type": entity_type}))
+                    self.set_status(200)
+                    self.write(json.dumps({"login": login, "type": entity_type}))
                 else:
                     del connections_cache[code]
                     raise Exception("removed code {0} from cache".format(code))
@@ -61,7 +64,7 @@ class CheckUserAccessHandler(tornado.web.RequestHandler):
         except Exception as e:
             logging.error("check request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 class LogoutUserHandler(tornado.web.RequestHandler):
@@ -72,14 +75,14 @@ class LogoutUserHandler(tornado.web.RequestHandler):
 
             if code in connections_cache:
                 del connections_cache[code]
-                self.write(json.dumps({"answer": 1}))
+                self.set_status(200)
             else:
                 raise Exception("No such code {0}".format(code))
 
         except Exception as e:
             logging.error("logout request: {0}".format(str(e)))
             self.set_status(400)
-            self.write(json.dumps({"answer": 0, "error": str(e)}))
+            self.write(json.dumps({"error": str(e)}))
 
 
 if __name__ == "__main__":

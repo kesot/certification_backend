@@ -1,8 +1,7 @@
 ﻿using System.Data.Entity;
 using CertificatesBackend.Models;
-using CertificatesBackend.DAL;
 
-namespace CertificatesBackend
+namespace CertificatesBackend.DAL
 {
 	public class CertificateInitializer : DropCreateDatabaseIfModelChanges<CertificatesDbContext>
 	{
@@ -39,7 +38,11 @@ namespace CertificatesBackend
 				CodeValue = "2440012384",
 				OrderId = 1
 			});
-
+			context.Certificates.Add(new Certificate
+			{
+				CertificateSetId = 1,
+				CodeValue = "2440022384"
+			});
 			
 			context.SaveChanges();
 		}

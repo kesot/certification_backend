@@ -42,7 +42,7 @@ namespace CertificatesBackend.Controllers
 		[HttpGet]
 		[Route("api/CertificateSets")]
 		[ResponseType(typeof(CertificateSet[]))]
-		public IHttpActionResult GetCertificateSets(int pageIndex = 0, int pageSize = 10, bool onlyWithAvailable = false)
+		public IHttpActionResult GetCertificateSets(int pageIndex = 0, int pageSize = 10, bool onlyWithAvailable = true)
 		{
 			return Ok(db.CertificateSets.Where(cs => db.Certificates.Where(c => c.CertificateSetId == cs.Id).Any(c => c.OrderId == null) || !onlyWithAvailable)
 				.OrderBy(c => c.Id).Skip(pageIndex * pageSize)
@@ -60,7 +60,7 @@ namespace CertificatesBackend.Controllers
 		[Route("api/CertificateSets/ByCompany")]
 		[ResponseType(typeof (CertificateSet[]))]
 		[HttpGet]
-		public IHttpActionResult GetCertificatesByCompany(int companyId, bool onlyWithAvailable = false)
+		public IHttpActionResult GetCertificatesByCompany(int companyId, bool onlyWithAvailable = true)
 		{
 			return Ok(db.CertificateSets.Where(cs => db.Certificates.Where(c => c.CertificateSetId == cs.Id).Any(c => c.OrderId == null) || !onlyWithAvailable)
 				.Where(c => c.CompanyId == companyId));

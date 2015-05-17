@@ -54,6 +54,7 @@ namespace CertificatesBackend.Models
 		[Required]
 		public int CostValue { get; set; }
 
+		[JsonIgnore]
 		public virtual Company Company { get; set; }
 
 		public void GenerateCertificates(CertificatesDbContext dbContext)

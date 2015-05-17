@@ -254,3 +254,16 @@ Reauest body: {
 "Name": "hui"
 }
 Respnse body: 15.05.2015 21:50:59 [{"Id":1,"Name":"MVideo"},{"Id":2,"Name":"hui"}]
+Request: 17.05.2015 14:34:32 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=10', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Request: 17.05.2015 14:34:32 Method: GET, RequestUri: 'http://localhost:55693/api/CertificateSets?pageIndex=0&pageSize=10', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+}
+Reauest body: 
+Respnse body: 17.05.2015 14:34:36 []

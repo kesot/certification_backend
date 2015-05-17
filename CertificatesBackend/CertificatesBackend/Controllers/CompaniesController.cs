@@ -36,6 +36,20 @@ namespace CertificatesBackend.Controllers
 			return Ok(company);
 		}
 
+		// GET api/Companies/5
+		[Route("api/Companies/ByName")]
+		[ResponseType(typeof(Company))]
+		public IHttpActionResult GetByName(string companyName)
+		{
+			Company company = db.Companies.SingleOrDefault(c => c.Name == companyName);
+			if (company == null)
+			{
+				return BadRequest("Not found such company");
+			}
+
+			return Ok(company);
+		}
+
 		// PUT api/Companies/5
 		public IHttpActionResult PutCompany(int id, Company company)
 		{

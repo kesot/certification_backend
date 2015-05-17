@@ -1,7 +1,8 @@
 ﻿using System.Data.Entity;
 using CertificatesBackend.Models;
+using CertificatesBackend.DAL;
 
-namespace CertificatesBackend.DAL
+namespace CertificatesBackend
 {
 	public class CertificateInitializer : DropCreateDatabaseIfModelChanges<CertificatesDbContext>
 	{

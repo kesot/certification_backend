@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using CertificatesBackend.Models;
 
@@ -10,11 +11,6 @@ namespace CertificatesBackend.DAL
 	}
 	internal static class DbSetExtensions
 	{
-		public static T GetById<T>(this DbSet<T> dbSet, int id) where T: class, IEntityWithId
-		{
-			return dbSet.Single(e => e.Id == id);
-		}
-
 		public static T TryGetById<T>(this DbSet<T> dbSet, int id) where T : class, IEntityWithId
 		{
 			return dbSet.SingleOrDefault(e => e.Id == id);

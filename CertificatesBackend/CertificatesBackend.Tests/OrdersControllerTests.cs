@@ -32,6 +32,18 @@ namespace CertificatesBackend.Tests
 		}
 
 		[TestMethod]
+		public void AddCertificate()
+		{
+			var response = controller.AddCertificate(1, new[] {1}) as ResponseMessageResult;
+		}
+
+		[TestMethod]
+		public void ConfirmPayment()
+		{
+			var response = controller.ConfirmPayment(1);
+		}
+		
+		[TestMethod]
 		public void GetOrdersByUser()
 		{
 			var response = controller.GetOrders(2).ToList();

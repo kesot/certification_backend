@@ -27,7 +27,7 @@ namespace CertificatesBackend.Controllers
 		[ResponseType(typeof(Company))]
 		public IHttpActionResult GetCompany(int id)
 		{
-			Company company = db.Companies.GetById(id);
+			Company company = db.Companies.TryGetById(id);
 			if (company == null)
 			{
 				return BadRequest("Not found such company");

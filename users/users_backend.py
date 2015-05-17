@@ -45,9 +45,9 @@ class GetUserHandler(tornado.web.RequestHandler):
             entity = db.get_entity(login, entity_type)
             if not entity:
                 raise Exception("Can't find such user {0}".format(login))
-            else:
-                self.set_status(200)
-                self.write(json.dumps(entity.to_json(), ensure_ascii=False))
+
+            self.set_status(200)
+            self.write(json.dumps(entity.to_json(), ensure_ascii=False))
 
         except Exception as e:
             logging.error("get_user request: {0}".format(str(e)))
@@ -70,11 +70,11 @@ class RemoveUserHandler(tornado.web.RequestHandler):
             entity = db.get_entity(login, entity_type)
             if not entity:
                 raise Exception("Can't find user with login {0}".format(login))
+
+            if db.remove_entity(entity):
+                self.set_status(200)
             else:
-                if db.remove_entity(entity):
-                    self.set_status(200)
-                else:
-                    raise Exception("Can't remove user with login {0}".format(login))
+                raise Exception("Can't remove user with login {0}".format(login))
 
         except Exception as e:
             logging.error("remove_user request: {0}".format(str(e)))
@@ -95,8 +95,8 @@ class UpdateUserHandler(tornado.web.RequestHandler):
 
             if not db.update_entity(data, entity_type):
                 raise Exception("Can't update user with login {0}".format(data["login"]))
-            else:
-                self.set_status(200)
+
+            self.set_status(200)
 
         except Exception as e:
             logging.error("update_user request: {0}".format(str(e)))

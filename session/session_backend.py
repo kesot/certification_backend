@@ -10,6 +10,7 @@ import logging
 import sys
 sys.path.append("../")
 from defines import SESSION_PORT, USERS_PORT, MEMCACHED_IP, EXPIRATION_TIME, LOG_FORMAT, LOG_SESSION_FNAME
+from helper import check_status_code
 
 define("debug", default=True)
 
@@ -25,16 +26,16 @@ class LoginUserHandler(tornado.web.RequestHandler):
 
             answer = requests.get(users_url+"/get_user?login={0}&type={1}".format(login, entity_type))
             answer_data = answer.json()
-            if answer.status_code != 200:
+            if not check_status_code(answer.status_code):
                 raise Exception(answer_data["error"])
 
             if password != answer_data["password"]:
                 raise Exception("Incorrect login or password")
-            else:
-                code = "".join(str(uuid4()).split("-"))
-                connections_cache[code] = (login, entity_type, time.time() + EXPIRATION_TIME)
-                self.set_status(200)
-                self.write(json.dumps({"code": code}))
+
+            code = "".join(str(uuid4()).split("-"))
+            connections_cache[code] = (login, entity_type, time.time() + EXPIRATION_TIME)
+            self.set_status(200)
+            self.write(json.dumps({"code": code}))
 
         except Exception as e:
             logging.error("login request: {0}".format(str(e)))

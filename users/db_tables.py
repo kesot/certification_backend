@@ -29,9 +29,9 @@ class Users(Base):
                 setattr(self, key, data[key])
 
     def to_json(self):
-        return {"fname": self.fname, "sname": self.sname, "mname": self.mname,
-                "birthday": str(self.birthday), "email": self.email,
-                "login": self.login, "password": self.password}
+        return {"id": self.id, "fname": self.fname, "sname": self.sname,
+                "mname": self.mname, "birthday": str(self.birthday),
+                "email": self.email, "login": self.login, "password": self.password}
 
 
 class Clients(Base):
@@ -50,7 +50,7 @@ class Clients(Base):
                 setattr(self, key, data[key])
 
     def to_json(self):
-        return {"login": self.login, "password": self.password, "firm_id": self.firm_id}
+        return {"id": self.id, "login": self.login, "password": self.password, "firm_id": self.firm_id}
 
 
 if __name__ == "__main__":

@@ -99,6 +99,7 @@ class TestUsersBackendMethods(unittest.TestCase):
         self.assertEqual(result.status_code, 400)
         result = requests.get(self.get_method_url+"?login=ivan&type=0").json()
         result["type"] = 0
+        del result["id"]
         self.assertDictEqual(data, result)
         data = {"login": "ivan", "type": 0}
         result = requests.delete(self.remove_method_url, data=json.dumps(data), headers=headers)
@@ -113,6 +114,7 @@ class TestUsersBackendMethods(unittest.TestCase):
         self.assertEqual(result.status_code, 400)
         result = requests.get(self.get_method_url+"?login=ozon&type=1").json()
         result["type"] = 1
+        del result["id"]
         self.assertDictEqual(data, result)
         data = {"login": "ozon", "type": 1}
         result = requests.delete(self.remove_method_url, data=json.dumps(data), headers=headers)

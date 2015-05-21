@@ -6,26 +6,41 @@ import requests
 import logging
 import sys
 sys.path.append("../")
-from defines import LOGIC_PORT, SESSION_PORT, USERS_PORT, CERTIFICATES_PORT, LOG_FORMAT, LOG_LOGIC_FNAME
+from defines import LOGIC_PORT, SESSION_PORT, USERS_PORT, LOG_FORMAT, LOG_LOGIC_FNAME
+from helper import check_status_code
 
 define("debug", default=True)
 
 users_url = "http://localhost:" + str(USERS_PORT)
 session_url = "http://localhost:" + str(SESSION_PORT)
-certificates_url = "http://localhost" + str(CERTIFICATES_PORT)
+certificates_url = "http://certificatesbackend.azurewebsites.net/"
 
 
+########################################
+############ Users Handlers ############
+########################################
 class AddUserHandler(tornado.web.RequestHandler):
     def post(self):
         try:
             data = tornado.escape.json_decode(self.request.body)
             headers = {'Content-type': 'application/json'}
 
+            if int(data["type"]) == 1:
+                company = data["company"]
+                answer = requests.get(certificates_url + "/api/Companies/ByName?companyName={0}".format(company))
+                if not check_status_code(answer.status_code):
+                    company_data = {"Name": company}
+                    answer = requests.post(certificates_url + "/api/Companies", data=json.dumps(company_data), headers=headers)
+                    if not check_status_code(answer.status_code):
+                        raise Exception("Can't add new company with name {0}".format(company))
+
+                data["firm_id"] = answer.json()["Id"]
+
             answer = requests.post(users_url + "/add_user", data=json.dumps(data), headers=headers)
-            if answer.status_code != 200:
+            if not check_status_code(answer.status_code):
                 raise Exception(answer.json()["error"])
-            else:
-                self.set_status(200)
+
+            self.set_status(200)
 
         except Exception as e:
             logging.error("add_user request: {0}".format(str(e)))
@@ -40,20 +55,20 @@ class GetUserHandler(tornado.web.RequestHandler):
 
             answer = requests.get(session_url+"/check?code={0}".format(code))
             answer_data = answer.json()
-            if answer.status_code != 200:
+            if not check_status_code(answer.status_code):
                 raise Exception(answer_data["error"])
-            else:
-                login = answer_data["login"]
-                entity_type = answer_data["type"]
-                url = users_url + "/get_user?login={0}&type={1}".format(login, entity_type)
 
-                answer = requests.get(url)
-                answer_data = answer.json()
-                if answer.status_code != 200:
-                    raise Exception(answer_data["error"])
-                else:
-                    self.set_status(200)
-                    self.write(answer_data)
+            login = answer_data["login"]
+            entity_type = answer_data["type"]
+            url = users_url + "/get_user?login={0}&type={1}".format(login, entity_type)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            self.set_status(200)
+            self.write(answer_data)
 
         except Exception as e:
             logging.error("get_user request: {0}".format(str(e)))
@@ -69,18 +84,18 @@ class RemoveUserHandler(tornado.web.RequestHandler):
 
             answer = requests.get(session_url+"/check?code={0}".format(code))
             answer_data = answer.json()
-            if answer.status_code != 200:
+            if not check_status_code(answer.status_code):
                 raise Exception(answer_data["error"])
-            else:
-                headers = {"Content-type": "application/json"}
-                requests.delete(session_url + "/logout", data=json.dumps(data), headers=headers)
 
-                data = {"login": answer_data["login"], "type": answer_data["type"]}
-                answer = requests.delete(users_url + "/remove_user", data=json.dumps(data), headers=headers)
-                if answer.status_code != 200:
-                    raise Exception(answer.json()["error"])
-                else:
-                    self.set_status(200)
+            headers = {"Content-type": "application/json"}
+            requests.delete(session_url + "/logout", data=json.dumps(data), headers=headers)
+
+            data = {"login": answer_data["login"], "type": answer_data["type"]}
+            answer = requests.delete(users_url + "/remove_user", data=json.dumps(data), headers=headers)
+            if not check_status_code(answer.status_code):
+                raise Exception(answer.json()["error"])
+
+            self.set_status(200)
 
         except Exception as e:
             logging.error("remove_user request: {0}".format(str(e)))
@@ -96,18 +111,18 @@ class UpdateUserHandler(tornado.web.RequestHandler):
 
             answer = requests.get(session_url+"/check?code={0}".format(code))
             answer_data = answer.json()
-            if answer.status_code != 200:
+            if not check_status_code(answer.status_code):
                 raise Exception(answer_data["error"])
-            else:
-                data["login"] = answer_data["login"]
-                data["type"] = answer_data["type"]
-                headers = {"Content-type": "application/json"}
 
-                answer = requests.put(users_url + "/update_user", data=json.dumps(data), headers=headers)
-                if answer.status_code != 200:
-                    raise Exception(answer.json()["error"])
-                else:
-                    self.set_status(200)
+            data["login"] = answer_data["login"]
+            data["type"] = answer_data["type"]
+            headers = {"Content-type": "application/json"}
+
+            answer = requests.put(users_url + "/update_user", data=json.dumps(data), headers=headers)
+            if not check_status_code(answer.status_code):
+                raise Exception(answer.json()["error"])
+
+            self.set_status(200)
 
         except Exception as e:
             logging.error("get_user request: {0}".format(str(e)))
@@ -125,11 +140,11 @@ class LoginUserHandler(tornado.web.RequestHandler):
             url = session_url + "/login?login={0}&password={1}&type={2}".format(login, password, entity_type)
             answer = requests.get(url)
             answer_data = answer.json()
-            if answer.status_code != 200:
+            if not check_status_code(answer.status_code):
                 raise Exception(answer_data["error"])
-            else:
-                self.set_status(200)
-                self.write(answer_data)
+
+            self.set_status(200)
+            self.write(answer_data)
 
         except Exception as e:
                 logging.error("login request: {0}".format(str(e)))
@@ -144,15 +159,174 @@ class LogoutUserHandler(tornado.web.RequestHandler):
             headers = {"Content-type": "application/json"}
 
             answer = requests.delete(session_url+"/logout", data=json.dumps(data), headers=headers)
-            if answer.status_code != 200:
+            if not check_status_code(answer.status_code):
                 raise Exception(answer.json()["error"])
-            else:
-                self.set_status(200)
+
+            self.set_status(200)
 
         except Exception as e:
                 logging.error("logout request: {0}".format(str(e)))
                 self.set_status(400)
                 self.write(json.dumps({"error": str(e)}))
+
+
+############################################
+############ Companies Handlers ############
+############################################
+class CompaniesHandler(tornado.web.RequestHandler):
+    def get(self):
+        try:
+            url = certificates_url + "/api/Companies"
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get companies list")
+
+            self.set_status(200)
+            self.write(json.dumps(answer.json(), ensure_ascii=False))
+
+        except Exception as e:
+            logging.error("companies request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+##################################################
+############ CertificateSets Handlers ############
+##################################################
+class CertificateSetsHandler(tornado.web.RequestHandler):
+    def get(self):
+        try:
+            page_index = self.get_argument("pageIndex")
+            page_size = self.get_argument("pageSize")
+            url = certificates_url + "/api/CertificateSets?pageIndex={0}&pageSize={1}".format(page_index, page_size)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get certificateSets list")
+
+            ignore_keys = ["MaskString", "AdministrativeName", "CompanyId", "AllCertificatesGenerated"]
+            answer_data = [{key: certificate[key] for key in certificate if key not in ignore_keys}
+                           for certificate in answer.json()]
+
+            self.set_status(200)
+            self.write(json.dumps(answer_data, ensure_ascii=False))
+
+        except Exception as e:
+            logging.error("certificateSets request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class CertificateSetsByCompanyHandler(tornado.web.RequestHandler):
+    def get(self):
+        try:
+            company_id = self.get_argument("companyId")
+            url = certificates_url + "/api/CertificateSets/ByCompany?companyId={0}".format(company_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get certificateSets from company with id {0}".format(company_id))
+
+            ignore_keys = ["MaskString", "AdministrativeName", "CompanyId", "AllCertificatesGenerated"]
+            answer_data = [{key: certificate[key] for key in certificate if key not in ignore_keys}
+                           for certificate in answer.json()]
+
+            self.set_status(200)
+            self.write(json.dumps(answer_data, ensure_ascii=False))
+
+        except Exception as e:
+            logging.error("certificateSetsByCompany request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class CertificateSetsByIdHandler(tornado.web.RequestHandler):
+    def get(self, _id=None):
+        try:
+            url = certificates_url + "/api/CertificateSets/{0}".format(_id)
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get info about certificateSet with id {0}".format(_id))
+
+            ignore_keys = ["MaskString", "AdministrativeName", "CompanyId", "AllCertificatesGenerated"]
+            answer_json = answer.json()
+            answer_data = {key: answer_json[key] for key in answer_json if key not in ignore_keys}
+
+            self.set_status(200)
+            self.write(json.dumps(answer_data, ensure_ascii=False))
+
+        except Exception as e:
+            logging.error("certificateSetsById request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+#########################################
+############ Orders Handlers ############
+#########################################
+class OrdersByUserHandler(tornado.web.RequestHandler):
+    def get(self):
+        try:
+            code = self.get_argument("code")
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 0:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            user_id = answer_data["id"]
+            url = certificates_url + "/api/Orders/ByUser/{0}".format(user_id)
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get orders list for user with id {0}".format(user_id))
+
+            # TODO: extract necessary information for frontend
+            self.set_status(200)
+            self.write(json.dumps(answer.json(), ensure_ascii=False))
+
+        except Exception as e:
+            logging.error("ordersByUser request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class OrdersByIdHandler(tornado.web.RequestHandler):
+    def get(self, _id=None):
+        try:
+            code = self.get_argument("code")
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 0:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            user_id = answer_data["id"]
+            url = certificates_url + "/api/Orders/{0}".format(_id)
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get order with id {0}".format(_id))
+
+            answer_data = answer.json()
+            if user_id != answer_data["UserExternalId"]:
+                raise Exception("Access denied for user with id {0} to order with id {1}".format(user_id, _id))
+
+            # TODO: extract necessary information for frontend
+            self.set_status(200)
+            self.write(json.dumps(answer_data, ensure_ascii=False))
+
+        except Exception as e:
+            logging.error("ordersById request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
 
 
 if __name__ == "__main__":
@@ -163,7 +337,13 @@ if __name__ == "__main__":
                                    (r"/remove_user", RemoveUserHandler),
                                    (r"/update_user", UpdateUserHandler),
                                    (r"/login", LoginUserHandler),
-                                   (r"/logout", LogoutUserHandler)],
+                                   (r"/logout", LogoutUserHandler),
+                                   (r"/companies", CompaniesHandler),
+                                   (r"/certificateSets", CertificateSetsHandler),
+                                   (r"/certificateSets/company", CertificateSetsByCompanyHandler),
+                                   (r"/certificateSets/([0-9]+)", CertificateSetsByIdHandler),
+                                   (r"/orders/user", OrdersByUserHandler),
+                                   (r"/orders/([0-9]+)", OrdersByIdHandler)],
                                   debug=options.debug)
     parse_command_line()
     app.listen(LOGIC_PORT)

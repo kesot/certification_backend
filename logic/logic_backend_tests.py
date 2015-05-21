@@ -138,7 +138,7 @@ class TestLogicBackendMethods(unittest.TestCase):
     def test_client_main(self):
         login = "ozon"
         password = "password"
-        data = {"login": login, "password": password, "type": 0, "firm_id": 1}
+        data = {"login": login, "password": password, "type": 0, "company": "NewCompany"}
         headers = {"Content-type": "application/json"}
         result = requests.post(self.add_user_method_url, data=json.dumps(data), headers=headers)
         self.assertEqual(result.status_code, 400)

@@ -39,7 +39,15 @@ namespace CertificatesBackend.Controllers
 		[ResponseType(typeof(Order[]))]
 		public IQueryable<Order> GetOrders(int userId)
 		{
-			return db.Orders.Where(o => o.UserExternalId == userId).Include(o => o.Certificates);
+			return db.Orders.Where(o => o.UserExternalId == userId).Include(o => o.Certificates.Select(c => c.CertificateSet));
+		}
+
+		[Route("api/Orders/last-unpayed/{userid}")]
+		[ResponseType(typeof(Order))]
+		public Order GetLastUnpayed(int userId)
+		{
+			return db.Orders.Where(o => o.UserExternalId == userId && o.PaymentDateTimeUtc == null )
+				.Include(o => o.Certificates.Select(c => c.CertificateSet)).SingleOrDefault();
 		}
 
 		/// <summary>
@@ -111,6 +119,34 @@ namespace CertificatesBackend.Controllers
 				certificate.OrderId = id;
 			}
 			
+			db.SaveChanges();
+
+			return ResponseMessage(new HttpResponseMessage(HttpStatusCode.Accepted));
+		}
+
+
+		[HttpPost]
+		[Route("api/Orders/{id}/remove-certificates")]
+		[ResponseType(typeof(ResponseMessageResult))]
+		public IHttpActionResult RemoveCertificates(int id, int[] certificateIds)
+		{
+			var order = db.Orders.TryGetById(id);
+			if (order == null)
+				return BadRequest(string.Format("Order #{0} not found", id));
+			if (order.PaymentDateTimeUtc != null)
+				return BadRequest(string.Format("Order #{0} already payed", id));
+
+			foreach (var certificateId in certificateIds)
+			{
+				var certificate = db.Certificates.TryGetById(certificateId);
+				if (certificate == null)
+					return BadRequest(string.Format("Certificate #{0} not found", id));
+				if (certificate.OrderId != order.Id)
+					return BadRequest(string.Format("Certificate #{0} dont belong to order #{1}", id, order.Id));
+				db.Entry(certificate).State = EntityState.Modified;
+				certificate.OrderId = null;
+			}
+
 			db.SaveChanges();
 
 			return ResponseMessage(new HttpResponseMessage(HttpStatusCode.Accepted));

@@ -42,7 +42,7 @@ namespace CertificatesBackend.Controllers
 			return db.Orders.Where(o => o.UserExternalId == userId).Include(o => o.Certificates.Select(c => c.CertificateSet));
 		}
 
-		[Route("api/Orders/last-unpayed/{userid}")]
+		[Route("api/Orders/last-unpaid/{userid}")]
 		[ResponseType(typeof(Order))]
 		public Order GetLastUnpayed(int userId)
 		{
@@ -125,7 +125,7 @@ namespace CertificatesBackend.Controllers
 		}
 
 
-		[HttpPost]
+		[HttpDelete]
 		[Route("api/Orders/{id}/remove-certificates")]
 		[ResponseType(typeof(ResponseMessageResult))]
 		public IHttpActionResult RemoveCertificates(int id, int[] certificateIds)

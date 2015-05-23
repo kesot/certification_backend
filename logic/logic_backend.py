@@ -285,7 +285,6 @@ class OrdersByUserHandler(tornado.web.RequestHandler):
             if not check_status_code(answer.status_code):
                 raise Exception("Can't get orders list for user with id {0}".format(user_id))
 
-            # TODO: extract necessary information for frontend
             self.set_status(200)
             self.write(json.dumps(answer.json(), ensure_ascii=False))
 
@@ -319,12 +318,158 @@ class OrdersByIdHandler(tornado.web.RequestHandler):
             if user_id != answer_data["UserExternalId"]:
                 raise Exception("Access denied for user with id {0} to order with id {1}".format(user_id, _id))
 
-            # TODO: extract necessary information for frontend
             self.set_status(200)
             self.write(json.dumps(answer_data, ensure_ascii=False))
 
         except Exception as e:
             logging.error("ordersById request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class AddCertificatesToCartHandler(tornado.web.RequestHandler):
+    def post(self):
+        try:
+            data = tornado.escape.json_decode(self.request.body)
+            code = data["code"]
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 0:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            user_id = answer_data["id"]
+            url = certificates_url + "/api/Orders/last-unpaid/{0}".format(user_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                url = certificates_url + "/api/Orders/create-for-user/{0}".format(user_id)
+                answer = requests.post(url)
+                if not check_status_code(answer.status_code):
+                    raise Exception("Can't create cart for user with id {0}".format(user_id))
+
+            order_id = answer.json()["Id"]
+            headers = {'Content-type': 'application/json'}
+            url = certificates_url + "/api/Orders/{0}/add-certificates".format(order_id)
+            data = data["certificates"]
+
+            answer = requests.post(url, data=json.dumps(data), headers=headers)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't add certificates to cart with id {0}".format(order_id))
+
+            self.set_status(200)
+
+        except Exception as e:
+            logging.error("addCertificateToCart request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class GetCartHandler(tornado.web.RequestHandler):
+    def get(self):
+        try:
+            code = self.get_argument("code")
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 0:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            user_id = answer_data["id"]
+            url = certificates_url + "/api/Orders/last-unpaid/{0}".format(user_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get cart for user with id {0}".format(user_id))
+
+            self.set_status(200)
+            self.write(json.dumps(answer.json(), ensure_ascii=False))
+
+        except Exception as e:
+            logging.error("getCart request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class RemoveCertificatesFromCartHandler(tornado.web.RequestHandler):
+    def delete(self):
+        try:
+            data = tornado.escape.json_decode(self.request.body)
+            code = data["code"]
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 0:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            user_id = answer_data["id"]
+            url = certificates_url + "/api/Orders/last-unpaid/{0}".format(user_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get cart for user with id {0}".format(user_id))
+
+            order_id = answer.json()["Id"]
+            headers = {'Content-type': 'application/json'}
+            url = certificates_url + "/api/Orders/{0}/remove-certificates".format(order_id)
+            data = data["certificates"]
+
+            answer = requests.delete(url, data=json.dumps(data), headers=headers)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't remove certificates from cart with id {0}".format(order_id))
+
+            self.set_status(200)
+
+        except Exception as e:
+            logging.error("removeCertificateFromCart request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class ConfirmPaymentHandler(tornado.web.RequestHandler):
+    def post(self):
+        try:
+            code = self.get_argument("code")
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 0:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            user_id = answer_data["id"]
+            url = certificates_url + "/api/Orders/last-unpaid/{0}".format(user_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get cart for user with id {0}".format(user_id))
+
+            order_id = answer.json()["Id"]
+            url = certificates_url + "/api/Orders/{0]/confirm-payment".format(order_id)
+
+            answer = requests.post(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't confirm payment for cart with id {0}".format(order_id))
+
+            self.set_status(200)
+
+        except Exception as e:
+            logging.error("confirmPayment request: {0}".format(str(e)))
             self.set_status(400)
             self.write(json.dumps({"error": str(e)}))
 

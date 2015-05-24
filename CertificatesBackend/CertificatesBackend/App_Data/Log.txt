@@ -267,3 +267,788 @@ Request: 17.05.2015 14:34:32 Method: GET, RequestUri: 'http://localhost:55693/ap
 }
 Reauest body: 
 Respnse body: 17.05.2015 14:34:36 []
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:03 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:03 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:15 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:03 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:15 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:16 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:03 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:15 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:16 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-Type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:03 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:15 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:16 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-Type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:03 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:15 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:16 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-Type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:53 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 232
+  Content-Type: application/json
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:03 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:15 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:16 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-Type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:53 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 232
+  Content-Type: application/json
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:30:14 {"Message":"An error has occurred.","ExceptionMessage":"An error occurred while updating the entries. See the inner exception for details.","ExceptionType":"System.Data.Entity.Infrastructure.DbUpdateException","StackTrace":"   в System.Data.Entity.Internal.InternalContext.SaveChanges()\r\n   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()\r\n   в System.Data.Entity.DbContext.SaveChanges()\r\n   в CertificatesBackend.Controllers.CertificateSetsController.PostCertificateSet(CertificateSet certificateset) в c:\\Programming\\certification_service\\CertificatesBackend\\CertificatesBackend\\Controllers\\CertificateSetsController.cs:строка 157\r\n   в lambda_method(Closure , Object , Object[] )\r\n   в System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)\r\n   в System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)\r\n   в System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()","InnerException":{"Message":"An error has occurred.","ExceptionMessage":"An error occurred while updating the entries. See the inner exception for details.","ExceptionType":"System.Data.Entity.Core.UpdateException","StackTrace":"   в System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()\r\n   в System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)\r\n   в System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)\r\n   в System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()\r\n   в System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()\r\n   в System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()\r\n   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)\r\n   в System.Data.Entity.Internal.InternalContext.SaveChanges()","InnerException":{"Message":"An error has occurred.","ExceptionMessage":"The INSERT statement conflicted with the FOREIGN KEY constraint \"FK_dbo.CertificateSets_dbo.Companies_CompanyId\". The conflict occurred in database \"CertificatesDB\", table \"dbo.Companies\", column 'Id'.\r\nThe statement has been terminated.","ExceptionType":"System.Data.SqlClient.SqlException","StackTrace":"   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)\r\n   в System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)\r\n   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)\r\n   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)\r\n   в System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()\r\n   в System.Data.SqlClient.SqlDataReader.get_MetaData()\r\n   в System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)\r\n   в System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)\r\n   в System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)\r\n   в System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)\r\n   в System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)\r\n   в System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   в System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)\r\n   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)\r\n   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)\r\n   в System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   в System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   в System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)\r\n   в System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()"}}}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:03 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:15 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:16 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-Type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:53 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 232
+  Content-Type: application/json
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:30:14 {"Message":"An error has occurred.","ExceptionMessage":"An error occurred while updating the entries. See the inner exception for details.","ExceptionType":"System.Data.Entity.Infrastructure.DbUpdateException","StackTrace":"   в System.Data.Entity.Internal.InternalContext.SaveChanges()\r\n   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()\r\n   в System.Data.Entity.DbContext.SaveChanges()\r\n   в CertificatesBackend.Controllers.CertificateSetsController.PostCertificateSet(CertificateSet certificateset) в c:\\Programming\\certification_service\\CertificatesBackend\\CertificatesBackend\\Controllers\\CertificateSetsController.cs:строка 157\r\n   в lambda_method(Closure , Object , Object[] )\r\n   в System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)\r\n   в System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)\r\n   в System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()","InnerException":{"Message":"An error has occurred.","ExceptionMessage":"An error occurred while updating the entries. See the inner exception for details.","ExceptionType":"System.Data.Entity.Core.UpdateException","StackTrace":"   в System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()\r\n   в System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)\r\n   в System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)\r\n   в System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()\r\n   в System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()\r\n   в System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()\r\n   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)\r\n   в System.Data.Entity.Internal.InternalContext.SaveChanges()","InnerException":{"Message":"An error has occurred.","ExceptionMessage":"The INSERT statement conflicted with the FOREIGN KEY constraint \"FK_dbo.CertificateSets_dbo.Companies_CompanyId\". The conflict occurred in database \"CertificatesDB\", table \"dbo.Companies\", column 'Id'.\r\nThe statement has been terminated.","ExceptionType":"System.Data.SqlClient.SqlException","StackTrace":"   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)\r\n   в System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)\r\n   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)\r\n   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)\r\n   в System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()\r\n   в System.Data.SqlClient.SqlDataReader.get_MetaData()\r\n   в System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)\r\n   в System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)\r\n   в System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)\r\n   в System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)\r\n   в System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)\r\n   в System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   в System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)\r\n   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)\r\n   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)\r\n   в System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   в System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   в System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)\r\n   в System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()"}}}
+Request: 24.05.2015 9:30:33 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 232
+  Content-Type: application/json
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 1,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Request: 24.05.2015 9:28:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: Application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:28:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:03 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:03 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:15 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:16 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:46 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Contetnt-Type: application/json
+  Content-Length: 232
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:29:46 {"Message":"The request contains an entity body but no Content-Type header. The inferred media type 'application/octet-stream' is not supported for this resource.","ExceptionMessage":"No MediaTypeFormatter is available to read an object of type 'CertificateSet' from content with media type 'application/octet-stream'.","ExceptionType":"System.Net.Http.UnsupportedMediaTypeException","StackTrace":"   в System.Net.Http.HttpContentExtensions.ReadAsAsync[T](HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Net.Http.HttpContentExtensions.ReadAsAsync(HttpContent content, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)\r\n   в System.Web.Http.ModelBinding.FormatterParameterBinding.ReadContentAsync(HttpRequestMessage request, Type type, IEnumerable`1 formatters, IFormatterLogger formatterLogger, CancellationToken cancellationToken)"}
+Request: 24.05.2015 9:29:53 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 232
+  Content-Type: application/json
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 6,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:30:14 {"Message":"An error has occurred.","ExceptionMessage":"An error occurred while updating the entries. See the inner exception for details.","ExceptionType":"System.Data.Entity.Infrastructure.DbUpdateException","StackTrace":"   в System.Data.Entity.Internal.InternalContext.SaveChanges()\r\n   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()\r\n   в System.Data.Entity.DbContext.SaveChanges()\r\n   в CertificatesBackend.Controllers.CertificateSetsController.PostCertificateSet(CertificateSet certificateset) в c:\\Programming\\certification_service\\CertificatesBackend\\CertificatesBackend\\Controllers\\CertificateSetsController.cs:строка 157\r\n   в lambda_method(Closure , Object , Object[] )\r\n   в System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)\r\n   в System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)\r\n   в System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()","InnerException":{"Message":"An error has occurred.","ExceptionMessage":"An error occurred while updating the entries. See the inner exception for details.","ExceptionType":"System.Data.Entity.Core.UpdateException","StackTrace":"   в System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()\r\n   в System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)\r\n   в System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)\r\n   в System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()\r\n   в System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()\r\n   в System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()\r\n   в System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)\r\n   в System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)\r\n   в System.Data.Entity.Internal.InternalContext.SaveChanges()","InnerException":{"Message":"An error has occurred.","ExceptionMessage":"The INSERT statement conflicted with the FOREIGN KEY constraint \"FK_dbo.CertificateSets_dbo.Companies_CompanyId\". The conflict occurred in database \"CertificatesDB\", table \"dbo.Companies\", column 'Id'.\r\nThe statement has been terminated.","ExceptionType":"System.Data.SqlClient.SqlException","StackTrace":"   в System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)\r\n   в System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)\r\n   в System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)\r\n   в System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)\r\n   в System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()\r\n   в System.Data.SqlClient.SqlDataReader.get_MetaData()\r\n   в System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)\r\n   в System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)\r\n   в System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite)\r\n   в System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)\r\n   в System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)\r\n   в System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   в System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)\r\n   в System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)\r\n   в System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)\r\n   в System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)\r\n   в System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)\r\n   в System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)\r\n   в System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()"}}}
+Request: 24.05.2015 9:30:33 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 232
+  Content-Type: application/json
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 1,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:30:33 {"Message":"An error has occurred.","ExceptionMessage":"UrlHelper.Link must not return null.","ExceptionType":"System.InvalidOperationException","StackTrace":"   в System.Web.Http.Results.CreatedAtRouteNegotiatedContentResult`1.Execute()\r\n   в System.Web.Http.Results.CreatedAtRouteNegotiatedContentResult`1.ExecuteAsync(CancellationToken cancellationToken)\r\n   в System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()\r\n--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---\r\n   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   в System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   в System.Web.Http.Dispatcher.HttpControllerDispatcher.<SendAsync>d__1.MoveNext()"}
+Request: 24.05.2015 9:34:42 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 232
+  Content-Type: application/json
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 1,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Request: 24.05.2015 9:34:42 Method: POST, RequestUri: 'http://localhost:55693/api/CertificateSets/Add', Version: 1.1, Content: System.Web.Http.WebHost.HttpControllerHandler+LazyStreamContent, Headers:
+{
+  Host: localhost:55693
+  User-Agent: Fiddler
+  Content-Length: 232
+  Content-Type: application/json
+}
+Reauest body: {
+  "MaskString": "ss??ss",
+  "AdministrativeName": "sample string 3",
+  "Name": "sample string 4",
+  "Descitption": "sample string 5",
+  "CompanyId": 1,
+  "AllCertificatesGenerated": true,
+  "Price": 9,
+  "CostValue": 10
+}
+Respnse body: 24.05.2015 9:34:45 {"Id":4,"MaskString":"ss??ss","AdministrativeName":"sample string 3","Name":"sample string 4","Descitption":"sample string 5","CompanyId":1,"AllCertificatesGenerated":false,"Price":9,"CostValue":10}

@@ -44,10 +44,13 @@ namespace CertificatesBackend.Controllers
 
 		[Route("api/Orders/last-unpaid/{userid}")]
 		[ResponseType(typeof(Order))]
-		public Order GetLastUnpayed(int userId)
+		public IHttpActionResult GetLastUnpayed(int userId)
 		{
-			return db.Orders.Where(o => o.UserExternalId == userId && o.PaymentDateTimeUtc == null )
+			var order = db.Orders.Where(o => o.UserExternalId == userId && o.PaymentDateTimeUtc == null )
 				.Include(o => o.Certificates.Select(c => c.CertificateSet)).SingleOrDefault();
+			if (order == null)
+				return NotFound();
+			return Ok(order);
 		}
 
 		/// <summary>

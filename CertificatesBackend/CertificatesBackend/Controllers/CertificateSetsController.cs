@@ -143,9 +143,9 @@ namespace CertificatesBackend.Controllers
 		/// Добавление шаблона (набора) сертификатов
 		/// </summary>
 		/// <param name="certificateset">Модель набора сертификатов</param>
-		[Route("api/CertificateSets/Add")]
+		[Route("api/CertificateSets/Add", Name = "certificateAdd")]
 		[HttpPost]
-		[ResponseType(typeof(ResponseMessageResult))]
+		[ResponseType(typeof(CertificateSet))]
 		public IHttpActionResult PostCertificateSet(CertificateSet certificateset)
 		{
 			if (certificateset == null)
@@ -155,7 +155,7 @@ namespace CertificatesBackend.Controllers
 
 			db.CertificateSets.Add(certificateset);
 			db.SaveChanges();
-			return ResponseMessage(new HttpResponseMessage(HttpStatusCode.Created));
+			return CreatedAtRoute("certificateAdd", new { id = certificateset.Id }, certificateset);
 		}
 
 		/// <summary>

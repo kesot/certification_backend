@@ -101,7 +101,7 @@ thead{
 	color: rgb(240,240,240);
 }
 td{
-
+	font-size: .9em;
 	padding: .5em;
 }
 tr:nth-child(2n+2){
@@ -141,6 +141,14 @@ input[type="button"]{
 input[type="submit"]:hover,
 input[type="button"]:hover{
 	background: rgba(36,194,203,.2);
+}
+
+input[type="checkbox"]{
+	width: auto !important;
+	margin-top: .7em !important;
+	margin-left: 25.2px !important;
+	margin-right: 1em !important;
+	display: inline !important;
 }
 
 
@@ -196,6 +204,16 @@ textarea:focus{
 	width: 90% !important;
 }
 
+fieldset{
+	border: 1px solid rgba(50,20,20,.2);
+	border-radius: 1em;
+
+}
+
+legend{
+	text-align: center;
+}
+
 header#main{
 	width: 90%;
 	padding: 0% 5% 1% 5%;
@@ -213,7 +231,7 @@ header#main{
 
 	a{
 		display: inline-block;
-		padding: 0 .2em 0 .5em;
+		padding: 0 .2em 0 .4em;
 		font-size: 1.2em;
 		border-left: .2mm solid rgb(200,200,200);
 	}
@@ -221,7 +239,20 @@ header#main{
 		border-left: 0mm solid rgb(200,200,200);	
 	}
 
-	
+	.href{
+		margin: 0 auto;
+		font-size: .9em;
+		text-align: center;
+		display: block;
+		width: 100%;
+		padding:0;
+		margin:0;
+		border: none; 
+	}
+
+	.href:first-child{
+		border-top: .2em solid rgb(50,50,50);
+	}
 	
 	.data-table{
 		border-collapse: collapse;
@@ -242,18 +273,20 @@ header#main{
 		display: inline-block;
 		float: right;
 		input{
-			width:91%;
-			margin:1%;
+			width: 70%;
+			margin: 0 auto;
+			display: block;
+			padding: .2em .5em;
 		}
 		input[type="text"],
 		input[type="password"]{
-			padding: .2em .5em;
+			margin-top: 5%;
 		}
 		input[type="button"],
 		input[type="submit"]{
 			font-size: .8em;
-			width:98%;
-			margin:1%;
+			margin-top: 3%;
+			margin-bottom: 3%;
 		}
 		.data-row{
 			width: 100%;
@@ -362,8 +395,10 @@ div#main {
 		position: relative;
 		margin: 0 auto 2em;
 		padding: 1em;
-		background: rgba(81,187,254,.4);
-		border-bottom: 1em solid rgba(81,187,254,1);
+		border-radius: 1em;
+		box-shadow: 0 0 .5em 0 black;
+		color: rgb(200,200,200);
+		background: rgba(0,0,0,.75);
 		overflow: hidden;
 		h2{
 			padding: 0em 0 .5em 0;
@@ -377,7 +412,7 @@ div#main {
 			top:0;
 			padding: .25em;
 			text-align: center;
-			color: rgb(45,45,45);
+			color: rgb(200,200,200);
 		}
 		.close:hover{
 			text-decoration: underline;
@@ -392,6 +427,30 @@ div#main {
 		ul{
 			display: table;
 		}
+
+		.button{
+			font-size: 1em;
+			padding: .25em 0.5em;
+			margin: .25em 0.5em;
+			display: inline-block;
+			cursor: pointer;
+			background: rgba(240,240,240,0.6);
+			border: .5mm solid rgb(36,194,203);
+			border-radius: 10em;
+			color: rgb(100,100,100);
+			text-decoration: none;
+		}
+
+		.button:hover{
+			background: rgba(36,194,203,.2);
+		}
+
+		.data-cell{
+			text-align: center;
+			border: 1px solid rgba(200,200,200,.5);
+			padding :.5em;
+		}
+
 	}
 
 	.cell{
@@ -463,6 +522,9 @@ div#main {
 		input[type="submit"]{
 			max-width: 220px;
 			width: 18%;
+		}
+		textarea{
+			width: auto !important;
 		}
 		ul{
 			list-style: none;
@@ -572,6 +634,7 @@ div#main {
 		padding: 1em;
 		box-shadow: 0 .2em .5em 0em rgb(100,100,100);
 
+
 		.data-table{
 			table-layout: fixed;
 		}
@@ -594,13 +657,15 @@ div#main {
 
 
 		#about-user{
+			
+
 			li{
 				margin-top: .5em;
 			}
 		}
 
 
-		#goods{
+		#orders{
 			margin-top: 1em;
 
 			h2{
@@ -608,6 +673,10 @@ div#main {
 				padding: .5em;
 			}
 
+		}
+
+		.alert:hover,p.alert{
+			color: red;
 		}
 
 	}

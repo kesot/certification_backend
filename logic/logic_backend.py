@@ -215,14 +215,14 @@ class TemplatesGetHandler(tornado.web.RequestHandler):
                 raise Exception(answer_data["error"])
 
             firm_id = answer_data["firm_id"]
-            url = certificates_url + "/api/CertificateSets/ByCompany?companyId={0}".format(firm_id)
+            url = certificates_url + "/api/CertificateSets/ByCompany?companyId={0}&onlyWithAvailable=False".format(firm_id)
 
             answer = requests.get(url)
             if not check_status_code(answer.status_code):
                 raise Exception("Can't get certificateSets for company with id {0}".format(firm_id))
 
             self.set_status(200)
-            self.write(answer.json())
+            self.write(json.dumps(answer.json(), ensure_ascii=False))
 
         except Exception as e:
             logging.error("templatesGet request: {0}".format(str(e)))
@@ -245,6 +245,16 @@ class TemplateAddHandler(tornado.web.RequestHandler):
             if answer_data["type"] != 1:
                 raise Exception("Method not available for this user (bad entity_type)")
 
+            login = answer_data["login"]
+            entity_type = answer_data["type"]
+            url = users_url + "/get_user?login={0}&type={1}".format(login, entity_type)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            data["CompanyId"] = answer_data["firm_id"]
             headers = {"Content-type": "application/json"}
             url = certificates_url + "/api/CertificateSets/Add"
 
@@ -423,12 +433,8 @@ class CertificateSetsHandler(tornado.web.RequestHandler):
             if not check_status_code(answer.status_code):
                 raise Exception("Can't get certificateSets list")
 
-            ignore_keys = ["MaskString", "AdministrativeName", "CompanyId", "AllCertificatesGenerated"]
-            answer_data = [{key: certificate[key] for key in certificate if key not in ignore_keys}
-                           for certificate in answer.json()]
-
             self.set_status(200)
-            self.write(json.dumps(answer_data, ensure_ascii=False))
+            self.write(json.dumps(answer.json(), ensure_ascii=False))
 
         except Exception as e:
             logging.error("certificateSets request: {0}".format(str(e)))
@@ -446,12 +452,8 @@ class CertificateSetsByCompanyHandler(tornado.web.RequestHandler):
             if not check_status_code(answer.status_code):
                 raise Exception("Can't get certificateSets from company with id {0}".format(company_id))
 
-            ignore_keys = ["MaskString", "AdministrativeName", "CompanyId", "AllCertificatesGenerated"]
-            answer_data = [{key: certificate[key] for key in certificate if key not in ignore_keys}
-                           for certificate in answer.json()]
-
             self.set_status(200)
-            self.write(json.dumps(answer_data, ensure_ascii=False))
+            self.write(json.dumps(answer.json(), ensure_ascii=False))
 
         except Exception as e:
             logging.error("certificateSetsByCompany request: {0}".format(str(e)))
@@ -467,12 +469,8 @@ class CertificateSetsByIdHandler(tornado.web.RequestHandler):
             if not check_status_code(answer.status_code):
                 raise Exception("Can't get info about certificateSet with id {0}".format(_id))
 
-            ignore_keys = ["MaskString", "AdministrativeName", "CompanyId", "AllCertificatesGenerated"]
-            answer_json = answer.json()
-            answer_data = {key: answer_json[key] for key in answer_json if key not in ignore_keys}
-
             self.set_status(200)
-            self.write(json.dumps(answer_data, ensure_ascii=False))
+            self.write(json.dumps(answer.json(), ensure_ascii=False))
 
         except Exception as e:
             logging.error("certificateSetsById request: {0}".format(str(e)))
@@ -687,7 +685,7 @@ class ConfirmPaymentHandler(tornado.web.RequestHandler):
                 raise Exception("Can't get cart for user with id {0}".format(user_id))
 
             order_id = answer.json()["Id"]
-            url = certificates_url + "/api/Orders/{0]/confirm-payment".format(order_id)
+            url = certificates_url + "/api/Orders/{0}/confirm-payment".format(order_id)
 
             answer = requests.post(url)
             if not check_status_code(answer.status_code):

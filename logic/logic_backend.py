@@ -191,6 +191,224 @@ class CompaniesHandler(tornado.web.RequestHandler):
             self.write(json.dumps({"error": str(e)}))
 
 
+class TemplatesGetHandler(tornado.web.RequestHandler):
+    def get(self):
+        try:
+            code = self.get_argument("code")
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 1:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            login = answer_data["login"]
+            entity_type = answer_data["type"]
+            url = users_url + "/get_user?login={0}&type={1}".format(login, entity_type)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            firm_id = answer_data["firm_id"]
+            url = certificates_url + "/api/CertificateSets/ByCompany?companyId={0}".format(firm_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get certificateSets for company with id {0}".format(firm_id))
+
+            self.set_status(200)
+            self.write(answer.json())
+
+        except Exception as e:
+            logging.error("templatesGet request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class TemplateAddHandler(tornado.web.RequestHandler):
+    def post(self):
+        try:
+            data = tornado.escape.json_decode(self.request.body)
+            code = data["code"]
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 1:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            headers = {"Content-type": "application/json"}
+            url = certificates_url + "/api/CertificateSets/Add"
+
+            answer = requests.post(url=url, data=json.dumps(data), headers=headers)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't add template")
+
+            self.set_status(200)
+            self.write(json.dumps({"id": answer.json()["Id"]}))
+
+        except Exception as e:
+            logging.error("templateAdd request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class TemplateConfirmAdditionHandler(tornado.web.RequestHandler):
+    def post(self):
+        try:
+            data = tornado.escape.json_decode(self.request.body)
+            code = data["code"]
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 1:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            login = answer_data["login"]
+            entity_type = answer_data["type"]
+            url = users_url + "/get_user?login={0}&type={1}".format(login, entity_type)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            firm_id = answer_data["firm_id"]
+            set_id = data["id"]
+            url = certificates_url + "/api/CertificateSets/{0}".format(set_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get template with id {0}".format(set_id))
+
+            if answer.json()["CompanyId"] != firm_id:
+                raise Exception("Access denied")
+
+            url = certificates_url + "/api/CertificateSets/{0}/generate-certificates".format(set_id)
+
+            answer = requests.post(url=url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't confirm addition of template with id {0}".format(set_id))
+
+            self.set_status(200)
+
+        except Exception as e:
+            logging.error("templateConfirmAddition request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class TemplateUpdateHandler(tornado.web.RequestHandler):
+    def put(self):
+        try:
+            data = tornado.escape.json_decode(self.request.body)
+            code = data["code"]
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 1:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            login = answer_data["login"]
+            entity_type = answer_data["type"]
+            url = users_url + "/get_user?login={0}&type={1}".format(login, entity_type)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            firm_id = answer_data["firm_id"]
+            set_id = data["id"]
+            url = certificates_url + "/api/CertificateSets/{0}".format(set_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get template with id {0}".format(set_id))
+
+            if answer.json()["CompanyId"] != firm_id:
+                raise Exception("Access denied")
+
+            headers = {"Content-type": "application/json"}
+            url = certificates_url + "/api/CertificateSets/{0}".format(set_id)
+
+            answer = requests.put(url=url, data=json.dumps(data), headers=headers)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't update template with id {0}".format(set_id))
+
+            self.set_status(200)
+
+        except Exception as e:
+            logging.error("templateUpdate request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
+class TemplateRemoveHandler(tornado.web.RequestHandler):
+    def delete(self):
+        try:
+            data = tornado.escape.json_decode(self.request.body)
+            code = data["code"]
+            url = session_url+"/check?code={0}".format(code)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            if answer_data["type"] != 1:
+                raise Exception("Method not available for this user (bad entity_type)")
+
+            login = answer_data["login"]
+            entity_type = answer_data["type"]
+            url = users_url + "/get_user?login={0}&type={1}".format(login, entity_type)
+
+            answer = requests.get(url)
+            answer_data = answer.json()
+            if not check_status_code(answer.status_code):
+                raise Exception(answer_data["error"])
+
+            firm_id = answer_data["firm_id"]
+            set_id = data["id"]
+            url = certificates_url + "/api/CertificateSets/{0}".format(set_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get template with id {0}".format(set_id))
+
+            if answer.json()["CompanyId"] != firm_id:
+                raise Exception("Access denied")
+
+            url = certificates_url + "/api/CertificateSets/{0}".format(set_id)
+
+            answer = requests.delete(url=url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't delete template with id {0}".format(set_id))
+
+            self.set_status(200)
+
+        except Exception as e:
+            logging.error("templateDelete request: {0}".format(str(e)))
+            self.set_status(400)
+            self.write(json.dumps({"error": str(e)}))
+
+
 ##################################################
 ############ CertificateSets Handlers ############
 ##################################################
@@ -449,7 +667,8 @@ class RemoveCertificatesFromCartHandler(tornado.web.RequestHandler):
 class ConfirmPaymentHandler(tornado.web.RequestHandler):
     def post(self):
         try:
-            code = self.get_argument("code")
+            data = tornado.escape.json_decode(self.request.body)
+            code = data["code"]
             url = session_url+"/check?code={0}".format(code)
 
             answer = requests.get(url)
@@ -485,22 +704,27 @@ class ConfirmPaymentHandler(tornado.web.RequestHandler):
 if __name__ == "__main__":
     logging.basicConfig(format=LOG_FORMAT, level=logging.DEBUG, filename=LOG_LOGIC_FNAME)
     logging.info("Logic service started")
-    app = tornado.web.Application([(r"/add_user", AddUserHandler),
-                                   (r"/get_user", GetUserHandler),
-                                   (r"/remove_user", RemoveUserHandler),
-                                   (r"/update_user", UpdateUserHandler),
-                                   (r"/login", LoginUserHandler),
-                                   (r"/logout", LogoutUserHandler),
+    app = tornado.web.Application([(r"/user/add", AddUserHandler),
+                                   (r"/user/get", GetUserHandler),
+                                   (r"/user/delete", RemoveUserHandler),
+                                   (r"/user/update", UpdateUserHandler),
+                                   (r"/user/login", LoginUserHandler),
+                                   (r"/user/logout", LogoutUserHandler),
                                    (r"/companies", CompaniesHandler),
+                                   (r"/companies/templates/get", TemplatesGetHandler),
+                                   (r"/companies/templates/add", TemplateAddHandler),
+                                   (r"/companies/templates/update", TemplateUpdateHandler),
+                                   (r"/companies/templates/delete", TemplateRemoveHandler),
+                                   (r"/companies/templates/confirm", TemplateConfirmAdditionHandler),
                                    (r"/certificateSets", CertificateSetsHandler),
                                    (r"/certificateSets/company", CertificateSetsByCompanyHandler),
                                    (r"/certificateSets/([0-9]+)", CertificateSetsByIdHandler),
                                    (r"/orders/user", OrdersByUserHandler),
                                    (r"/orders/([0-9]+)", OrdersByIdHandler),
-                                   (r"/orders/add_to_cart", AddCertificatesToCartHandler),
-                                   (r"/orders/get_cart", GetCartHandler),
-                                   (r"/orders/remove_from_cart", RemoveCertificatesFromCartHandler),
-                                   (r"/orders/confirm_payment", ConfirmPaymentHandler)],
+                                   (r"/orders/cart/add", AddCertificatesToCartHandler),
+                                   (r"/orders/cart/get", GetCartHandler),
+                                   (r"/orders/cart/delete", RemoveCertificatesFromCartHandler),
+                                   (r"/orders/cart/confirm", ConfirmPaymentHandler)],
                                   debug=options.debug)
     parse_command_line()
     app.listen(LOGIC_PORT)

@@ -36,7 +36,7 @@ class LoginUserHandler(tornado.web.RequestHandler):
             user_id = answer_data["id"]
             connections_cache[code] = (login, user_id, entity_type, time.time() + EXPIRATION_TIME)
             self.set_status(200)
-            self.write(json.dumps({"code": code}))
+            self.write(json.dumps({"code": code, "type": entity_type}))
 
         except Exception as e:
             logging.error("login request: {0}".format(str(e)))

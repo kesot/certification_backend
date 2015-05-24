@@ -46,8 +46,10 @@ class GetUserHandler(tornado.web.RequestHandler):
             if not entity:
                 raise Exception("Can't find such user {0}".format(login))
 
+            answer_data = entity.to_json()
+            answer_data["type"] = entity_type
             self.set_status(200)
-            self.write(json.dumps(entity.to_json(), ensure_ascii=False))
+            self.write(json.dumps(answer_data, ensure_ascii=False))
 
         except Exception as e:
             logging.error("get_user request: {0}".format(str(e)))

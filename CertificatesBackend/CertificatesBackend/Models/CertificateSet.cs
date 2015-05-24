@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace CertificatesBackend.Models
 {
-	public class CertificateSet: IEntityWithId
+	public class CertificateSet : IEntityWithId
 	{
 		public int Id { get; set; }
 
@@ -30,13 +30,13 @@ namespace CertificatesBackend.Models
 		public string Name { get; set; }
 
 		public string Descitption { get; set; }
-		
+
 		[Required]
 		public int CompanyId { get; set; }
-		
+
 		[JsonIgnore]
 		public bool IsInCertificateGeneratingStage { get; private set; }
-		
+
 		/// <summary>
 		/// Идентификатор того что задача по генерации сертификатов завершена.
 		/// </summary>
@@ -47,7 +47,7 @@ namespace CertificatesBackend.Models
 		/// </summary>
 		[Required]
 		public int Price { get; set; }
-		
+
 		/// <summary>
 		/// Номинал сертификата
 		/// </summary>
@@ -61,29 +61,23 @@ namespace CertificatesBackend.Models
 		{
 			IsInCertificateGeneratingStage = true;
 			dbContext.SaveChanges();
-			Task.Run(() =>
+
+			var regex = Regex.Match(MaskString, "\\?+");
+			var matchString = regex.Value;
+			var length = matchString.Length;
+			for (int i = 0; i < Math.Pow(10, length); i++)
 			{
-				try
+				dbContext.Certificates.Add(new Certificate()
 				{
-					var regex = Regex.Match(MaskString, "\\?+");
-					var matchString = regex.Value;
-					var length = matchString.Length;
-					for (int i = 0; i < Math.Pow(10, length); i++)
-					{
-						dbContext.Certificates.Add(new Certificate()
-						{
-							CertificateSetId = Id,
-							CodeValue = MaskString.Replace(matchString, i.ToString().PadLeft(length, '0'))
-						});
-					}
-					AllCertificatesGenerated = true;
-				}
-				finally 
-				{
-					IsInCertificateGeneratingStage = false;
-					dbContext.SaveChanges();
-				}
-			});
+					CertificateSetId = Id,
+					CodeValue = MaskString.Replace(matchString, i.ToString().PadLeft(length, '0'))
+				});
+			}
+			AllCertificatesGenerated = true;
+
+			IsInCertificateGeneratingStage = false;
+			dbContext.SaveChanges();
+
 		}
 	}
 }

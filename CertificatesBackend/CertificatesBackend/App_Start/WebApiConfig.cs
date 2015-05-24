@@ -38,20 +38,23 @@ namespace CertificatesBackend
 			  HttpRequestMessage request, CancellationToken cancellationToken)
 		{
 			string requestString = request.ToString();
-			string requestBody = await request.Content.ReadAsStringAsync();
+
+			string requestBody = "";
+			if (request.Content != null)
+				requestBody = await request.Content.ReadAsStringAsync();
 			Trace.WriteLine(requestBody);
 			Logger.Instance.WriteToLog("Request: " +
-				DateTime.UtcNow.ToString("G") + " " + requestString + "\r\n" + "Reauest body: " + requestBody);
+				DateTime.UtcNow.ToString("G") + " " + requestString + "\r\n" + "Reaqest body: " + requestBody);
 
 			//let other handlers process the request
 			return await base.SendAsync(request, cancellationToken)
 				 .ContinueWith(task =>
 				 {
-
-					 //once response is ready, log it
-					 var responseBody = task.Result.Content.ReadAsStringAsync().Result;
-					 Logger.Instance.WriteToLog("Respnse body: " + 
-						DateTime.UtcNow.ToString("G") + " " + responseBody);
+					string responseBody ="";
+					if (task.Result.Content != null)
+						responseBody = task.Result.Content.ReadAsStringAsync().Result;
+					Logger.Instance.WriteToLog("Response body: " + 
+					DateTime.UtcNow.ToString("G") + " " + responseBody);
 
 					 return task.Result;
 				 });

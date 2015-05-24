@@ -30,6 +30,11 @@ namespace CertificatesBackend.DAL
 				UserExternalId = 1
 			});
 
+			context.Orders.Add(new Order()
+			{
+				UserExternalId = 1
+			});
+
 			context.SaveChanges();
 
 			context.Certificates.Add(new Certificate
@@ -43,6 +48,20 @@ namespace CertificatesBackend.DAL
 				CertificateSetId = 1,
 				CodeValue = "2440022384"
 			});
+			context.Certificates.Add(new Certificate
+			{
+				CertificateSetId = 1,
+				CodeValue = "2440022384",
+				OrderId = 2
+			});
+
+			context.Certificates.Add(new Certificate
+			{
+				CertificateSetId = 1,
+				CodeValue = "2440022384",
+				OrderId = 2
+			});
+			
 			
 			context.SaveChanges();
 		}

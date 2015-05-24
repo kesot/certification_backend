@@ -108,17 +108,26 @@ namespace CertificatesBackend.Controllers
 		[ResponseType(typeof(StatusCodeResult))]
 		public IHttpActionResult PutCertificateSet(int id, CertificateSet сertificateSet)
 		{
+			if (id != сertificateSet.Id)
+			{
+				return BadRequest();
+			}
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
-			if (id != сertificateSet.Id)
-			{
-				return BadRequest();
-			}
 
-			db.Entry(сertificateSet).State = EntityState.Modified;
+			db.CertificateSets.Attach(сertificateSet);
+			var entry = db.Entry(сertificateSet);
+			var orig = entry.OriginalValues;
+
+			if (orig["MaskString"] != сertificateSet.MaskString)
+				return BadRequest("Cant change mask string");
+
+			if (int.Parse(orig["CompanyId"].ToString()) != сertificateSet.CompanyId)
+				return BadRequest("Cant change company");
+			entry.State = EntityState.Modified;
 
 			try
 			{

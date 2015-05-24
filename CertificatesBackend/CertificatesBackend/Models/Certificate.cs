@@ -13,6 +13,6 @@ namespace CertificatesBackend.Models
 		
 		public CertificateSet CertificateSet { get; set; }
 		[JsonIgnore]
-		public virtual Order Order { get; set; } 
+		public virtual Order Order { get; set; }
 	}
 }

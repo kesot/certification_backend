@@ -143,9 +143,9 @@ namespace CertificatesBackend.Controllers
 			{
 				var certificate = db.Certificates.TryGetById(certificateId);
 				if (certificate == null)
-					return BadRequest(string.Format("Certificate #{0} not found", id));
+					return BadRequest(string.Format("Certificate #{0} not found", certificateId));
 				if (certificate.OrderId != order.Id)
-					return BadRequest(string.Format("Certificate #{0} dont belong to order #{1}", id, order.Id));
+					return BadRequest(string.Format("Certificate #{0} dont belong to order #{1}", certificateId, order.Id));
 				db.Entry(certificate).State = EntityState.Modified;
 				certificate.OrderId = null;
 			}

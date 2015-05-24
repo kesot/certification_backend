@@ -343,6 +343,14 @@ class AddCertificatesToCartHandler(tornado.web.RequestHandler):
                 raise Exception("Method not available for this user (bad entity_type)")
 
             user_id = answer_data["id"]
+            set_id = data["id"]
+            url = certificates_url + "/api/CertificateSets/{0}/first-available-certificate".format(set_id)
+
+            answer = requests.get(url)
+            if not check_status_code(answer.status_code):
+                raise Exception("Can't get available certificate from certificateSet with id {0}".format(set_id))
+
+            certificate_id = answer.json()["Id"]
             url = certificates_url + "/api/Orders/last-unpaid/{0}".format(user_id)
 
             answer = requests.get(url)
@@ -355,7 +363,7 @@ class AddCertificatesToCartHandler(tornado.web.RequestHandler):
             order_id = answer.json()["Id"]
             headers = {'Content-type': 'application/json'}
             url = certificates_url + "/api/Orders/{0}/add-certificates".format(order_id)
-            data = data["certificates"]
+            data = [certificate_id]
 
             answer = requests.post(url, data=json.dumps(data), headers=headers)
             if not check_status_code(answer.status_code):
@@ -488,7 +496,11 @@ if __name__ == "__main__":
                                    (r"/certificateSets/company", CertificateSetsByCompanyHandler),
                                    (r"/certificateSets/([0-9]+)", CertificateSetsByIdHandler),
                                    (r"/orders/user", OrdersByUserHandler),
-                                   (r"/orders/([0-9]+)", OrdersByIdHandler)],
+                                   (r"/orders/([0-9]+)", OrdersByIdHandler),
+                                   (r"/orders/add_to_cart", AddCertificatesToCartHandler),
+                                   (r"/orders/get_cart", GetCartHandler),
+                                   (r"/orders/remove_from_cart", RemoveCertificatesFromCartHandler),
+                                   (r"/orders/confirm_payment", ConfirmPaymentHandler)],
                                   debug=options.debug)
     parse_command_line()
     app.listen(LOGIC_PORT)

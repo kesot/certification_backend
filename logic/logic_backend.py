@@ -1,4 +1,3 @@
-from signal import siginterrupt
 from tornado.options import define, options, parse_command_line
 import tornado.ioloop
 import tornado.web
@@ -13,7 +12,7 @@ import signal
 
 
 def signal_handler(sig_number, frame):
-    print("Signal {0} received")
+    print("Signal {0} received".format(sig_number))
     if sig_number == signal.SIGINT:
         tornado.ioloop.IOLoop.instance().stop()
         sys.exit(0)

@@ -1,3 +1,4 @@
+from signal import siginterrupt
 from tornado.options import define, options, parse_command_line
 import tornado.ioloop
 import tornado.web
@@ -8,6 +9,15 @@ import sys
 sys.path.append("../")
 from defines import LOGIC_PORT, SESSION_PORT, USERS_PORT, LOG_FORMAT, LOG_LOGIC_FNAME
 from helper import check_status_code
+import signal
+
+
+def signal_handler(sig_number, frame):
+    print("Signal {0} received")
+    if sig_number == signal.SIGINT:
+        tornado.ioloop.IOLoop.instance().stop()
+        sys.exit(0)
+
 
 define("debug", default=True)
 
@@ -700,6 +710,7 @@ class ConfirmPaymentHandler(tornado.web.RequestHandler):
 
 
 if __name__ == "__main__":
+    signal.signal(signal.SIGINT, signal_handler)
     logging.basicConfig(format=LOG_FORMAT, level=logging.DEBUG, filename=LOG_LOGIC_FNAME)
     logging.info("Logic service started")
     app = tornado.web.Application([(r"/user/add", AddUserHandler),

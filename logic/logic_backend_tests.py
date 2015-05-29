@@ -10,12 +10,12 @@ logic_url = "http://localhost:" + str(LOGIC_PORT)
 
 class TestLogicBackendMethods(unittest.TestCase):
     def setUp(self):
-        self.add_user_method_url = logic_url + "/add_user"
-        self.get_user_method_url = logic_url + "/get_user"
-        self.remove_user_method_url = logic_url + "/remove_user"
-        self.update_user_method_url = logic_url + "/update_user"
-        self.login_user_method_url = logic_url + "/login"
-        self.logout_user_method_url = logic_url + "/logout"
+        self.add_user_method_url = logic_url + "/user/add"
+        self.get_user_method_url = logic_url + "/user/get"
+        self.remove_user_method_url = logic_url + "/user/delete"
+        self.update_user_method_url = logic_url + "/user/update"
+        self.login_user_method_url = logic_url + "/user/login"
+        self.logout_user_method_url = logic_url + "/user/logout"
 
     def test_add_user_method_bad(self):
         data = {}
@@ -134,7 +134,7 @@ class TestLogicBackendMethods(unittest.TestCase):
         self.assertEqual(result.status_code, 200)
         result = requests.delete(self.logout_user_method_url, data=json.dumps(data), headers=headers)
         self.assertEqual(result.status_code, 400)
-
+    
     def test_client_main(self):
         login = "ozon"
         password = "password"

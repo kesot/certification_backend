@@ -13,6 +13,9 @@ class DBProcessor:
         db_session = sessionmaker(bind=engine)
         self.session = db_session()
 
+    def close_session(self):
+        self.session.close()
+
     def add_entity(self, entity):
         try:
             self.session.add(entity)

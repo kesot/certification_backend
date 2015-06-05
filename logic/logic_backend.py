@@ -661,7 +661,7 @@ class RemoveCertificatesFromCartHandler(tornado.web.RequestHandler):
 
             answer = requests.delete(url, data=json.dumps(data), headers=headers)
             if not check_status_code(answer.status_code):
-                raise Exception("Can't remove certificates from cart with id {0}".format(order_id))
+                raise Exception("Can't remove certificates with id {0} from cart with id {1}".format(data, order_id))
 
             self.set_status(200)
 

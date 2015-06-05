@@ -13,6 +13,7 @@ import signal
 def signal_handler(sig_number, frame):
     print("Signal {0} received".format(sig_number))
     if sig_number == signal.SIGINT:
+        db.close_session()
         tornado.ioloop.IOLoop.instance().stop()
         sys.exit(0)
 

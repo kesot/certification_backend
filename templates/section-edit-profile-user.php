@@ -1,16 +1,21 @@
+<!-- 
+
+	php handler for take user info
+ -->
+
 <section id="registration-data">
-	<form action="requestHandler.php" method="post">
+	<form action="/send_update_user" method="post">
 		<h2>Изменение данных:</h2>
 		<ul>
 			<p><sup>*</sup>- поля которые вы не хотите изменять оставьте пустыми</p>
 			<li>
-				<input type="text" id="firstname" name="firstname" placeholder="Фамилия">
+				<input type="text" id="fname" name="fname" placeholder="Фамилия">
 			</li>
 			<li>
-				<input type="text" id="secondname" name="secondname" placeholder="Имя">
+				<input type="text" id="sname" name="sname" placeholder="Имя">
 			</li>
 			<li>
-				<input type="text" id="patronumic" name="patronumic" placeholder="Отчество">
+				<input type="text" id="mname" name="mname" placeholder="Отчество">
 			</li>
 			<li>
 				<input type="email" id="email" name="email" placeholder="Эл.почта">
@@ -27,3 +32,10 @@
 		</ul>
 	</form>
 </section>
+
+
+<!-- 
+
+	js handler for password identity
+
+ -->

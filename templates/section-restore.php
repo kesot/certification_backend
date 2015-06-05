@@ -1,5 +1,5 @@
 <section id="registration-data">
-	<form action="requestHandler.php" method="post">
+	<form action="/restore" method="post">
 		<h2>Восстановление пароля:</h2>
 		<ul>
 			<li>

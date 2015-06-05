@@ -1,5 +1,5 @@
 <section id="auth">
-	<form action="">
+	<form action="/login">
 		<ul>
 			<li><input type="text" placeholder="Логин"></li>
 			<li><input type="password" placeholder="Пароль"></li>

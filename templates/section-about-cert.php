@@ -1,32 +1,39 @@
+<?php 
+
+	$cert = get_certs();
+
+
+?>
+
 <section id="one-cert-data">
 	<div class="data-table">
 		<div class="data-row">
 			<div class="data-cell">
-				<img src="1.jpg">
+				<img src="<?=$cert['Id']?>.jpg">
 			</div>
 			<div class="data-cell">
 				<section class="about-cert">
-					<h3>Подарочная карта: МВидео</h3>
+					<h3>
+						Подарочная карта:
+						<span id="comp-name"><?=$cert['Name']?></span>
+					</h3>
 					<ul>
 						<li>
 							Номинал: 
 							<div class="select">
 								<p>></p>
 								<select name="cost" id="">
-									<option value="500">500</option>
-									<option value="500">1000</option>
-									<option value="500">1500</option>
-									<option value="500">2000</option>
-									<option value="500">3000</option>
-									<option value="500">5000</option>
+									<option value=<?=$cert['CostValue']?> > 
+										<?=$cert['CostValue']?>
+									</option>
 								</select>
 							</div>
 						</li>
-						<li><input type="button" value="Далее"></li>
+						<li><a class="button" href="/add_to_cart?id=<?=$cert['Id']?>">Добавить в корзину</a></li>
 						<li><input type="button" value="Запомнить"></li>
 						<li class="cut">
 							<p>
-								Эта подарочная карта дает Вам право на приобретение любых товаров в магазине МВидео в размере до 1000 рублей. 
+								<?=$cert['Descitption']?>
 							</p>
 						</li>
 						<li>

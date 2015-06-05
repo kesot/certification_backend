@@ -1,115 +1,24 @@
+<?php
+	
+	unset($_GET['id']);
+	$certs = get_certs();
+
+	if(count($certs) >= 4) $count = 4;
+	else $count = count($certs);
+?>
+
 <section id="advertising">
 
 	<div class="table-row">
+		<?for($i=0; $i < $count; $i++):?>
 		<div class="cell">
 			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее" data-id="1">
+				<span><?=$certs[$i]['Name']?></span>
+				<input class="cert" type="button" value="Подробнее" data-id="/certificates_one?id=<?=$certs[$i]['Id']?>">
 			</div>
-			<img src="/1.jpg" alt="Comment">
+			<img src="/<?=$certs[$i]['Id']?>.jpg" alt="Comment">
 		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-	</div>
-	<div class="table-row">
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-	</div>
-	<div class="table-row">
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
-		<div class="cell">
-			<div class="up-cell">
-				<span>Название</span>
-				<input type="button" value="Подробнее">
-			</div>
-			<img src="/1.jpg" alt="Comment">
-		</div >
+		<?endfor;?>
 	</div>
 
 </section>

@@ -1,7 +1,13 @@
 <section id="registration-data">
-	<form action="/send_update_agent" method="post">
-		<h2>Изменить пароль:</h2>
+	<form action="/reg_comp_agent" method="post">
+		<h2>Регистрация:</h2>
 		<ul>
+			<li>
+				<input type="text" id="name" name="name" placeholder="Название компании">
+			</li>
+			<li>
+				<input type="text" id="login" name="login" placeholder="Логин">
+			</li>
 			<li>
 				<input type="password" id="password" name="password" placeholder="Пароль">
 			</li>
@@ -14,9 +20,3 @@
 		</ul>
 	</form>
 </section>
-
-<!-- 
-
-	js handler for password identity
-
- -->

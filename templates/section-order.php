@@ -1,3 +1,11 @@
+<!-- 
+
+	php handler for take order's consist
+	send order ID
+	take ID's certificates
+
+ -->
+
 <section id="profile">
 	<section id="orders">
 		<h2>Состав заказа №1234</h2>
@@ -23,7 +31,7 @@
 					<td>01.01.2015</td>
 					<td>2130000001111123</td>
 					<td>Нет</td>
-					<td><a href="">Просмотр</a></td>
+					<td><a href="/about_cert?id=1">Просмотр</a></td>
 				</tr>
 				<tr>
 					<td>1</td>

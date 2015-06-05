@@ -1,6 +1,7 @@
 <section id="registration-data">
-	<form action="requestHandler.php" method="post">
+	<form action="/registration" method="post">
 		<h2>Регистрация:</h2>
+		<a href="/registration_comp_agent">Зарегестрироваться как сотрудник компании</a>
 		<ul>
 			<li>
 				<input type="text" id="firstname" name="firstname" placeholder="Фамилия">

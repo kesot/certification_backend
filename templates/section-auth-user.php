@@ -14,7 +14,7 @@
 			</div>
 			<div class="data-row">
 				<div class="data-cell">
-					<input type="checkbox" name="type">Я партнер
+					<input type="checkbox" name="type" value="1">Я партнер
 				</div>
 			</div>
 			<div class="data-row">

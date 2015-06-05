@@ -91,6 +91,24 @@ a:hover{
 }
 
 
+a.button{
+	font-size: 1em;
+	padding: .25em 0.5em;
+	margin: .25em 0.5em;
+	display: inline-block;
+	cursor: pointer;
+	background: rgba(240,240,240,0.6);
+	border: .5mm solid rgb(36,194,203) !important;
+	border-radius: 10em;
+	color: rgb(100,100,100);
+	text-decoration: none;
+}
+
+a.button:hover{
+	background: rgba(36,194,203,.2);
+}
+
+
 table{
 	width: 100%;
 	border-collapse: collapse;

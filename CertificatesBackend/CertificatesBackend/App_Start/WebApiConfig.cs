@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,10 +43,7 @@ namespace CertificatesBackend
 			string requestBody = "";
 			if (request.Content != null)
 				requestBody = await request.Content.ReadAsStringAsync();
-			Trace.WriteLine(requestBody);
-			Logger.Instance.WriteToLog("Request: " +
-				DateTime.UtcNow.ToString("G") + " " + requestString + "\r\n" + "Reaqest body: " + requestBody);
-
+			bool wasError;
 			//let other handlers process the request
 			return await base.SendAsync(request, cancellationToken)
 				 .ContinueWith(task =>
@@ -53,8 +51,12 @@ namespace CertificatesBackend
 					string responseBody ="";
 					if (task.Result.Content != null)
 						responseBody = task.Result.Content.ReadAsStringAsync().Result;
-					Logger.Instance.WriteToLog("Response body: " + 
-					DateTime.UtcNow.ToString("G") + " " + responseBody);
+					 wasError = task.Result.StatusCode >= HttpStatusCode.BadRequest;
+					 
+						 Logger.Instance.WriteToLog("Request: " +
+							DateTime.UtcNow.ToString("G") + " " + requestString + "\r\n" + "Request body: " + requestBody, wasError);
+						 Logger.Instance.WriteToLog("Response body: " +
+							DateTime.UtcNow.ToString("G") + " " + responseBody, wasError);
 
 					 return task.Result;
 				 });
